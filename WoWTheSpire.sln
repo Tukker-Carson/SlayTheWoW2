@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWTheSpire", "WoWTheSpire.csproj", "{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{D422CA3A-F3A3-4131-A963-3F8C26DE62FF}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
