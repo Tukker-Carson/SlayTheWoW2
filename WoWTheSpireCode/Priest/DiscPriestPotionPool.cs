@@ -1,12 +1,13 @@
 ﻿using BaseLib.Abstracts;
-using WoWTheSpire.WoWTheSpireCode.Extensions;
 using Godot;
+using WoWTheSpire.WoWTheSpireCode.Extensions;
 
-namespace WoWTheSpire.WoWTheSpireCode.Character;
+namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
-public class WoWTheSpireRelicPool : CustomRelicPoolModel
+public class DiscPriestPotionPool : CustomPotionPoolModel
 {
-    public override Color LabOutlineColor => WoWTheSpire.Color;
+    public override Color LabOutlineColor => DiscPriest.Color;
+
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();

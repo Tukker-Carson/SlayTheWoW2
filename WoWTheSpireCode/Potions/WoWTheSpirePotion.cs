@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
-using WoWTheSpire.WoWTheSpireCode.Character;
+using WoWTheSpire.WoWTheSpireCode.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Potions;
 
-[Pool(typeof(WoWTheSpirePotionPool))]
+[Pool(typeof(DiscPriestPotionPool))]
 public abstract class WoWTheSpirePotion : CustomPotionModel;

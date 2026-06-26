@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using WoWTheSpire.WoWTheSpireCode.Character;
 using WoWTheSpire.WoWTheSpireCode.Extensions;
+using WoWTheSpire.WoWTheSpireCode.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Relics;
 
@@ -15,7 +15,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Relics;
 /// The [Pool] annotation marks this relic as being tied to your specific character. Inheriting from this class means
 /// that your relics don't need to invidually say which pool they should be in.
 /// </summary>
-[Pool(typeof(WoWTheSpireRelicPool))]
+[Pool(typeof(DiscPriestRelicPool))]
 public abstract class WoWTheSpireRelic : CustomRelicModel
 {
     public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();

@@ -1,17 +1,17 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using WoWTheSpire.WoWTheSpireCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using WoWTheSpire.WoWTheSpireCode.Cards;
+using WoWTheSpire.WoWTheSpireCode.Extensions;
 
-namespace WoWTheSpire.WoWTheSpireCode.Character;
+namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
-public class WoWTheSpire : PlaceholderCharacterModel
+public class DiscPriest : PlaceholderCharacterModel
 {
-    public const string CharacterId = "WoWTheSpire";
+    public const string CharacterId = "DiscPriest";
 
     public static readonly Color Color = new("ffffff");
 
@@ -21,16 +21,16 @@ public class WoWTheSpire : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<PriestDefend>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
@@ -38,9 +38,9 @@ public class WoWTheSpire : PlaceholderCharacterModel
         ModelDb.Relic<BurningBlood>()
     ];
 
-    public override CardPoolModel CardPool => ModelDb.CardPool<WoWTheSpireCardPool>();
-    public override RelicPoolModel RelicPool => ModelDb.RelicPool<WoWTheSpireRelicPool>();
-    public override PotionPoolModel PotionPool => ModelDb.PotionPool<WoWTheSpirePotionPool>();
+    public override CardPoolModel CardPool => ModelDb.CardPool<DiscPriestCardPool>();
+    public override RelicPoolModel RelicPool => ModelDb.RelicPool<DiscPriestRelicPool>();
+    public override PotionPoolModel PotionPool => ModelDb.PotionPool<DiscPriestPotionPool>();
 
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets.

@@ -1,9 +1,9 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using WoWTheSpire.WoWTheSpireCode.Character;
 using WoWTheSpire.WoWTheSpireCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using WoWTheSpire.WoWTheSpireCode.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards;
 
@@ -13,8 +13,8 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards;
 /// This will generate a class that extends this one.
 /// You can also just create the class manually; just make sure to inherit from this class.
 /// </summary>
-[Pool(typeof(WoWTheSpireCardPool))]
-public abstract class WoWTheSpireCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+[Pool(typeof(DiscPriestCardPool))]
+public abstract class DiscPriestCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
     //Image size:

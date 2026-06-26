@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards;
 
-public class Smite() : DiscPriestCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class PriestStrike() : DiscPriestCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy) {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
 

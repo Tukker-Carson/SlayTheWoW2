@@ -1,12 +1,12 @@
 ﻿using BaseLib.Abstracts;
-using WoWTheSpire.WoWTheSpireCode.Extensions;
 using Godot;
+using WoWTheSpire.WoWTheSpireCode.Extensions;
 
-namespace WoWTheSpire.WoWTheSpireCode.Character;
+namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
-public class WoWTheSpireCardPool : CustomCardPoolModel
+public class DiscPriestCardPool : CustomCardPoolModel
 {
-    public override string Title => WoWTheSpire.CharacterId; //This is not a display name.
+    public override string Title => DiscPriest.CharacterId; //This is not a display name.
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
