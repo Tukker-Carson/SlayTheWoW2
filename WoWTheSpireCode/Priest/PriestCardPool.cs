@@ -4,13 +4,15 @@ using WoWTheSpire.WoWTheSpireCode.Extensions;
 
 namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
-public class DiscPriestCardPool : CustomCardPoolModel
+public class PriestCardPool : CustomCardPoolModel
 {
-    public override string Title => DiscPriest.CharacterId; //This is not a display name.
+    public override string Title => Priest.CharacterId; //This is not a display name.
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
-
+    
+    // Makes Cards automatically viewable. REMOVE BEFORE RELEASE PLZ IM GONNA FORGET!!
+    public override bool SeenByDefault => true;
 
     /* These HSV values will determine the color of your card back.
     They are applied as a shader onto an already colored image,

@@ -9,9 +9,9 @@ using WoWTheSpire.WoWTheSpireCode.Extensions;
 
 namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
-public class DiscPriest : PlaceholderCharacterModel
+public class Priest : PlaceholderCharacterModel
 {
-    public const string CharacterId = "DiscPriest";
+    public const string CharacterId = "Priest";
 
     public static readonly Color Color = new("ffffff");
 
@@ -38,7 +38,7 @@ public class DiscPriest : PlaceholderCharacterModel
         ModelDb.Relic<BurningBlood>()
     ];
 
-    public override CardPoolModel CardPool => ModelDb.CardPool<DiscPriestCardPool>();
+    public override CardPoolModel CardPool => ModelDb.CardPool<PriestCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<DiscPriestRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<DiscPriestPotionPool>();
 

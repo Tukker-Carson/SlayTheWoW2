@@ -1,3 +1,8 @@
 {
-  
+  "WOWTHESPIRE-SHADOWFORM_POWER.description": "While in Shadowform, deal [blue]10%[/blue] more and take [blue]10%[/blue] less damage.",
+  "WOWTHESPIRE-SHADOWFORM_POWER.smartDescription": "While in Shadowform, deal [blue]10%[/blue] more and take [blue]10%[/blue] less damage.",
+  "WOWTHESPIRE-SHADOWFORM_POWER.title": "Shadowform",
+  "WOWTHESPIRE-WEAKENED_SOUL_POWER.description": "You may not play [gold]Power Word: Shield[/gold] this turn.",
+  "WOWTHESPIRE-WEAKENED_SOUL_POWER.smartDescription": "You may not play [gold]Power Word: Shield[/gold] this turn.",
+  "WOWTHESPIRE-WEAKENED_SOUL_POWER.title": "Weakened Soul"
 }

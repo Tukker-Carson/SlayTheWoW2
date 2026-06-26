@@ -6,7 +6,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
 public class DiscPriestPotionPool : CustomPotionPoolModel
 {
-    public override Color LabOutlineColor => DiscPriest.Color;
+    public override Color LabOutlineColor => Priest.Color;
 
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
