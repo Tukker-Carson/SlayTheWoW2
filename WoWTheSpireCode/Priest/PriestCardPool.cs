@@ -12,7 +12,7 @@ public class PriestCardPool : CustomCardPoolModel
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
     
     // Makes Cards automatically viewable. REMOVE BEFORE RELEASE PLZ IM GONNA FORGET!!
-    public override bool SeenByDefault => true;
+    // public override bool SeenByDefault => true;
 
     /* These HSV values will determine the color of your card back.
     They are applied as a shader onto an already colored image,

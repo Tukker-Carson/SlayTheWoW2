@@ -1,8 +1,12 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.Keywords;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers;
@@ -11,7 +15,6 @@ public class ShadowformPower() : WoWTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShadowformPower>(1)];
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource) {
@@ -19,5 +22,10 @@ public class ShadowformPower() : WoWTheSpirePower
         if (Owner == dealer) return 1.1M;
         if (Owner == target) return 0.9M;
         return 1;
+    }
+
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
+        if (cardPlay.Card.CanonicalKeywords.Contains(WowKeywords.Holy)) PowerCmd.Remove(this);
+        return base.AfterCardPlayed(choiceContext, cardPlay);
     }
 }

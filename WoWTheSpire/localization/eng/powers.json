@@ -4,5 +4,8 @@
   "WOWTHESPIRE-SHADOWFORM_POWER.title": "Shadowform",
   "WOWTHESPIRE-WEAKENED_SOUL_POWER.description": "You may not play [gold]Power Word: Shield[/gold] this turn.",
   "WOWTHESPIRE-WEAKENED_SOUL_POWER.smartDescription": "You may not play [gold]Power Word: Shield[/gold] this turn.",
-  "WOWTHESPIRE-WEAKENED_SOUL_POWER.title": "Weakened Soul"
+  "WOWTHESPIRE-WEAKENED_SOUL_POWER.title": "Weakened Soul",
+  "WOWTHESPIRE-SHADOW_ORB_POWER.description": "[gold]Shadow Orbs[/gold] are spent on powerful cards.",
+  "WOWTHESPIRE-SHADOW_ORB_POWER.smartDescription": "[gold]Shadow Orbs[/gold] are spent on powerful cards.",
+  "WOWTHESPIRE-SHADOW_ORB_POWER.title": "Shadow Orb"
 }

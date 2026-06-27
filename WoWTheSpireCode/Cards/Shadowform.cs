@@ -9,7 +9,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers;
 namespace WoWTheSpire.WoWTheSpireCode.Cards;
 
 public class Shadowform() : PriestCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self) {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShadowformPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowformPower>()];
 
@@ -21,5 +21,5 @@ public class Shadowform() : PriestCard(0, CardType.Skill, CardRarity.Basic, Targ
             this);
     }
     
-    // protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3);
+    protected override void OnUpgrade() => AddKeyword(CardKeyword.Innate);
 }
