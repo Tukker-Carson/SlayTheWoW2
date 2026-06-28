@@ -1,4 +1,6 @@
 {
   "WOWTHESPIRE-HOLY.description": "When played, this card will take you out of [gold]Shadowform[/gold].",
-  "WOWTHESPIRE-HOLY.title": "Holy"
+  "WOWTHESPIRE-HOLY.title": "Holy",
+  "WOWTHESPIRE-DOT.description": "Damage Over Time. Effected creature takes damage at the end of their turn.",
+  "WOWTHESPIRE-DOT.title": "DoT"
 }

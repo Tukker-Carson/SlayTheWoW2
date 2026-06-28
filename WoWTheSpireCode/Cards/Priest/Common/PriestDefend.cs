@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace WoWTheSpire.WoWTheSpireCode.Cards;
+namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class PriestDefend() : PriestCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self) {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];

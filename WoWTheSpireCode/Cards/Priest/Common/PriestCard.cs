@@ -1,11 +1,11 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using WoWTheSpire.WoWTheSpireCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using WoWTheSpire.WoWTheSpireCode.Extensions;
 using WoWTheSpire.WoWTheSpireCode.Priest;
 
-namespace WoWTheSpire.WoWTheSpireCode.Cards;
+namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 /// <summary>
 /// This is the base class for your mod's cards, which is set up to load the card's images from your mod's resources.

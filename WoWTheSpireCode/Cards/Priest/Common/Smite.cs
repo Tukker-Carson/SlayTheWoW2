@@ -7,17 +7,18 @@ using MegaCrit.Sts2.Core.ValueProps;
 using WoWTheSpire.WoWTheSpireCode.Keywords;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 
-namespace WoWTheSpire.WoWTheSpireCode.Cards;
+namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
-public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WowKeywords.Holy];
+public class Smite() : PriestCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowformPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        // await PowerCmd.Remove<ShadowformPower>(Owner.Creature);
+        await PowerCmd.Remove<ShadowformPower>(Owner.Creature);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(4);

@@ -3,10 +3,10 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
+using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 
-namespace WoWTheSpire.WoWTheSpireCode.Cards;
+namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Basic;
 
 public class Shadowform() : PriestCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self) {
     

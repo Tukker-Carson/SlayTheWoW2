@@ -4,5 +4,5 @@ using WoWTheSpire.WoWTheSpireCode.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Potions;
 
-[Pool(typeof(DiscPriestPotionPool))]
+[Pool(typeof(PriestPotionPool))]
 public abstract class WoWTheSpirePotion : CustomPotionModel;

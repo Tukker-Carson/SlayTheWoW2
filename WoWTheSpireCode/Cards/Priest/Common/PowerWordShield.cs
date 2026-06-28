@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 
-namespace WoWTheSpire.WoWTheSpireCode.Cards;
+namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class PowerWordShield() : PriestCard(1, CardType.Skill, CardRarity.Basic, TargetType.AnyPlayer) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move), new PowerVar<WeakenedSoulPower>(1)];

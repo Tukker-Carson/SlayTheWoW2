@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using WoWTheSpire.WoWTheSpireCode.Cards;
+using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 using WoWTheSpire.WoWTheSpireCode.Extensions;
 
 namespace WoWTheSpire.WoWTheSpireCode.Priest;
@@ -39,8 +40,8 @@ public class Priest : PlaceholderCharacterModel
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<PriestCardPool>();
-    public override RelicPoolModel RelicPool => ModelDb.RelicPool<DiscPriestRelicPool>();
-    public override PotionPoolModel PotionPool => ModelDb.PotionPool<DiscPriestPotionPool>();
+    public override RelicPoolModel RelicPool => ModelDb.RelicPool<PriestRelicPool>();
+    public override PotionPoolModel PotionPool => ModelDb.PotionPool<PriestPotionPool>();
 
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets.

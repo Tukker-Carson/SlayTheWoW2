@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace WoWTheSpire.WoWTheSpireCode.Keywords;
 
-public class WowKeywords {
-    [CustomEnum] public static CardKeyword Holy;
+public class WoWKeywords {
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)] public static CardKeyword Holy;
+    [CustomEnum] public static CardKeyword DoT;
 }

@@ -61,6 +61,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="WoWTheSpireCode\Cards\Priest\Rare\" />
         <Folder Include="WoWTheSpire\images\card_portraits\big\"/>
         <Folder Include="WoWTheSpire\images\powers\big\"/>
         <Folder Include="WoWTheSpire\images\relics\big\"/>
