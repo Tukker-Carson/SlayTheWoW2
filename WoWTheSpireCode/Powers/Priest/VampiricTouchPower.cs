@@ -1,7 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers;
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 public class VampiricTouchPower : BaseDoT {
 

@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers;
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 public class PrayerOfMendingPower() : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;

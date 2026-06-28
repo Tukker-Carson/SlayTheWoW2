@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers;
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 public class DevouringPlaguePower : BaseDoT {
     public override async Task<Task> AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Platform;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers;
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 public abstract class BaseDoT : WoWTheSpirePower {
     public override PowerType Type => PowerType.Debuff;

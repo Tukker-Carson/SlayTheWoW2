@@ -5,9 +5,8 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Events;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers;
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 public class RenewPower : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
