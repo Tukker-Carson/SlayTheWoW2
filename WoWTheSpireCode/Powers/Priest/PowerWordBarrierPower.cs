@@ -1,0 +1,19 @@
+﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
+
+public class PowerWordBarrierPower : WoWTheSpirePower {
+    public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Single;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("DamageDecrease", 20)];
+
+    public override decimal ModifyDamageMultiplicative(Creature? target, Decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource) {
+        ArgumentNullException.ThrowIfNull(target);
+        return Owner.Side==target.Side || !props.IsPoweredAttack() ? 1 : DynamicVars["DamageDecrease"].BaseValue / 100;
+    }
+}

@@ -25,5 +25,11 @@
   "WOWTHESPIRE-DEVOURING_PLAGUE_POWER.title": "Devouring Plague",
   "WOWTHESPIRE-HOLY_FIRE_POWER.description": "[gold]Holy Fire[/gold] deals damage at the end of the creature's turn. [gold]Smite[/gold] does [blue]50%[/blue] more damage to the this creature.",
   "WOWTHESPIRE-HOLY_FIRE_POWER.smartDescription": "Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn. [gold]Smite[/gold] does [blue]50%[/blue] more damage to the this creature.",
-  "WOWTHESPIRE-HOLY_FIRE_POWER.title": "Holy Fire"
+  "WOWTHESPIRE-HOLY_FIRE_POWER.title": "Holy Fire",
+  "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.description": "All allies take less attack damage.",
+  "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.smartDescription": "All allies take [blue]{DamageDecrease:diff()}%[/blue] less attack damage.",
+  "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.title": "Power Word: Barrier",
+  "HYMN_OF_HOPE_POWER.description": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
+  "HYMN_OF_HOPE_POWER.smartDescription": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
+  "HYMN_OF_HOPE_POWER.title": "Hymn Of Hope"
 }
