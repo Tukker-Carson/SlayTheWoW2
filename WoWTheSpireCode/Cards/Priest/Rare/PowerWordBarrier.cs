@@ -15,8 +15,8 @@ public class PowerWordBarrier() : PriestCard(3, CardType.Power, CardRarity.Rare,
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, WoWKeywords.Holy];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        await PowerCmd.Apply<PowerWordBarrierPower>(new ThrowingPlayerChoiceContext(),
-            Owner.Creature,
+        foreach (var player in CombatState!.Allies) await PowerCmd.Apply<PowerWordBarrierPower>(new ThrowingPlayerChoiceContext(),
+            player,
             DynamicVars[nameof(PowerWordBarrierPower)].BaseValue,
             Owner.Creature,
             this);

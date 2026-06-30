@@ -31,5 +31,11 @@
   "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.title": "Power Word: Barrier",
   "HYMN_OF_HOPE_POWER.description": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
   "HYMN_OF_HOPE_POWER.smartDescription": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
-  "HYMN_OF_HOPE_POWER.title": "Hymn Of Hope"
+  "HYMN_OF_HOPE_POWER.title": "Hymn Of Hope",
+  "WOWTHESPIRE-DISPERSION_POWER.description": "Take 90% less attack damage from enemies.",
+  "WOWTHESPIRE-DISPERSION_POWER.smartDescription": "Take 90% less attack damage from enemies.",
+  "WOWTHESPIRE-DISPERSION_POWER.title": "Dispersion",
+  "WOWTHESPIRE-DIVINE_HYMN_POWER.description": "Heal at the end of your turn.",
+  "WOWTHESPIRE-DIVINE_HYMN_POWER.smartDescription": "Heal {Amount} HP at the end of your turn.",
+  "WOWTHESPIRE-DIVINE_HYMN_POWER.title": "Divine Hymn"
 }

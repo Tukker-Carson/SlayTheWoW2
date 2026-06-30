@@ -13,11 +13,10 @@ public class RenewPower : WoWTheSpirePower {
     public override PowerStackType StackType => PowerStackType.Counter;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(0)];
 
-    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
-        if (side != Owner.Side) return base.AfterSideTurnEnd(choiceContext, side, participants);
-        CreatureCmd.Heal(Owner, DynamicVars.Heal.BaseValue);
-        PowerCmd.Decrement(this);
-        return base.AfterSideTurnEnd(choiceContext, side, participants);
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
+        if (!participants.Contains(Owner)) return;
+        await CreatureCmd.Heal(Owner, DynamicVars.Heal.BaseValue);
+        await PowerCmd.Decrement(this);
     }
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
