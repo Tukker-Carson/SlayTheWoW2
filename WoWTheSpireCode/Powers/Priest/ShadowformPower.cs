@@ -22,8 +22,7 @@ public class ShadowformPower() : WoWTheSpirePower
         return 1;
     }
 
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
-        if (cardPlay.Card.CanonicalKeywords.Contains(WoWKeywords.Holy) && cardPlay.Card.Owner.Creature == Owner) PowerCmd.Remove(this);
-        return base.AfterCardPlayed(choiceContext, cardPlay);
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
+        if (cardPlay.Card.CanonicalKeywords.Contains(WoWKeywords.Holy) && cardPlay.Card.Owner.Creature == Owner) await PowerCmd.Remove(this);
     }
 }

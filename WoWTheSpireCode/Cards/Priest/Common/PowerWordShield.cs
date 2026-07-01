@@ -8,7 +8,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
-public class PowerWordShield() : PriestCard(1, CardType.Skill, CardRarity.Basic, TargetType.AnyPlayer) {
+public class PowerWordShield() : PriestCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyPlayer) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move), new PowerVar<WeakenedSoulPower>(1)];
 
     protected override bool IsPlayable => !Owner.Creature.HasPower<WeakenedSoulPower>();

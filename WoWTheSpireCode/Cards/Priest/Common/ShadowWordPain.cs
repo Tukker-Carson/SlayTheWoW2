@@ -10,7 +10,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
-public class ShadowWordPain() : PriestCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
+public class ShadowWordPain() : PriestCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShadowWordPainPower>(4), new IntVar("Potency", 4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowWordPainPower>()];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.DoT];
