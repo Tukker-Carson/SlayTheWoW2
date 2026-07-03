@@ -8,7 +8,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 
-public class HymnOfHope() : PriestCard(3, CardType.Skill, CardRarity.Rare, TargetType.AllAllies) {
+public class HymnOfHope() : PriestCard(3, CardType.Power, CardRarity.Rare, TargetType.AllAllies) {
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<HymnOfHopePower>(1), new PowerVar<EnergyNextTurnPower>(1)];
 
