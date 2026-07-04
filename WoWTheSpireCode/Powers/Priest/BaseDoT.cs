@@ -15,7 +15,12 @@ public abstract class BaseDoT : WoWTheSpirePower {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
     public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Unpowered), new StringVar("Applier")];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new DamageVar(0, ValueProp.Unpowered),
+        new StringVar("Applier"),
+        new IntVar("Potency", 0),
+        new BoolVar("ApplierIsYou", true)
+    ];
     
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         if (side == Owner.Side) return;
@@ -24,7 +29,8 @@ public abstract class BaseDoT : WoWTheSpirePower {
     }
     
     public override Task AfterApplied(Creature? applier, CardModel? cardSource) {
-        ((StringVar)DynamicVars["Applier"]).StringValue = Applier!.Player!.NetId == 1 ? "You gain" : PlatformUtil.GetPlayerName(RunManager.Instance.NetService.Platform, Applier!.Player!.NetId)+"gains";
+        ((StringVar)DynamicVars["Applier"]).StringValue = Applier!.Player!.NetId == 1 ? "You" : PlatformUtil.GetPlayerName(RunManager.Instance.NetService.Platform, Applier!.Player!.NetId);
+        ((BoolVar)DynamicVars["ApplierIsYou"]).BaseValue = Applier!.Player!.NetId == 1 ? 1 : 0;
         return Task.CompletedTask;
     }
 
@@ -34,6 +40,7 @@ public abstract class BaseDoT : WoWTheSpirePower {
             return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
         
         DynamicVars.Damage.BaseValue = Math.Max(DynamicVars.Damage.BaseValue, cardSource.DynamicVars["Potency"].BaseValue);
+        DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
         PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
 
         return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
