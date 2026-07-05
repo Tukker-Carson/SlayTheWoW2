@@ -38,10 +38,13 @@
   "WOWTHESPIRE-DIVINE_HYMN_POWER.description": "Heal at the end of your turn.",
   "WOWTHESPIRE-DIVINE_HYMN_POWER.smartDescription": "Heal {Amount} HP at the end of your turn.",
   "WOWTHESPIRE-DIVINE_HYMN_POWER.title": "Divine Hymn",
-  "WOWTHESPIRE-FEAR_POWER.description": "Deals less damage to the applier.",
+  "WOWTHESPIRE-FEAR_POWER.description": "[gold]DoT[/gold]. Feared creatures deal less damage to the applier.",
   "WOWTHESPIRE-FEAR_POWER.smartDescription": "[gold]DoT[/gold]. This creature deals {Potency} less damage to [gold]{Applier}[/gold]. Goes away after [gold]{Applier}[/gold] {ApplierIsYou:deal|deals} attack damage [blue]{Amount}[/blue] {Amount:plural:time|times}.",
   "WOWTHESPIRE-FEAR_POWER.title": "Fear",
   "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.description": "At the beginning of your turn, draw a card. If it's [gold]Holy[/gold], upgrade it. Otherwise, discard it.",
-  "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.smartDescription": "At the beginning of your turn, draw {Amount} card. If it's [gold]Holy[/gold], upgrade it. Otherwise, discard it.",
-  "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.title": "Power Word: Spirit"
+  "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.smartDescription": "At the beginning of your turn, draw {Amount:plural:a card|{} cards}. If it's [gold]Holy[/gold], upgrade it. Otherwise, discard it.",
+  "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.title": "Power Word: Spirit",
+  "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.description": "Reduce all incoming attack damage.",
+  "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.smartDescription": "Reduce all incoming attack damage by [blue]{Amount}[/blue].",
+  "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.title": "Power Word: Fortitude"
 }

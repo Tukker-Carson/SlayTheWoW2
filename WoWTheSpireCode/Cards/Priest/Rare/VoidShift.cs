@@ -17,7 +17,7 @@ public class VoidShift() : PriestCard(1, CardType.Skill, CardRarity.Rare, Target
         await CreatureCmd.SetCurrentHp(play.Target, ownerHealth*play.Target.MaxHp);
     }
     
-    public override async Task AfterCombatEnd(CombatRoom room) {
+    public override async Task AfterCombatVictory(CombatRoom room) {
         if (room is not { RoomType: RoomType.Boss } && Pile is { Type: PileType.Deck }) await CardPileCmd.RemoveFromDeck(this);
     }
 

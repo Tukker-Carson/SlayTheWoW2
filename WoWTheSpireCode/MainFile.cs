@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using BaseLib.Patches.Features;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;

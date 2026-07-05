@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using WoWTheSpire.WoWTheSpireCode.Keywords;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
