@@ -46,5 +46,11 @@
   "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.title": "Power Word: Spirit",
   "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.description": "Reduce all incoming attack damage.",
   "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.smartDescription": "Reduce all incoming attack damage by [blue]{Amount}[/blue].",
-  "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.title": "Power Word: Fortitude"
+  "WOWTHESPIRE-POWER_WORD_FORTITUDE_POWER.title": "Power Word: Fortitude",
+  "WOWTHESPIRE-ARCHANGEL_POWER.description": "Deal [blue]10%[/blue] increased damage. Each time you play a [gold]Holy[/gold] card, increase this amount by [blue]10%[/blue]. Lose 1 stack at the end of your turn.",
+  "WOWTHESPIRE-ARCHANGEL_POWER.smartDescription": "Deal [blue]{Potency:diff()}%[/blue] increased damage. Each time you play a [gold]Holy[/gold] card, increase this amount by [blue]10%[/blue]. Lose 1 stack at the end of your turn.",
+  "WOWTHESPIRE-ARCHANGEL_POWER.title": "Archangel",
+  "WOWTHESPIRE-ATONEMENT_POWER.description": "[gold]Holy[/gold] attacks heal the lowest HP friendly target (by percent) for [blue]25%[/blue] of unblocked damage dealt.",
+  "WOWTHESPIRE-ATONEMENT_POWER.smartDescription": "[gold]Holy[/gold] attacks heal the lowest HP friendly target (by percent) for [blue]{SpecAmount:diff()}[/blue]% of unblocked damage dealt.",
+  "WOWTHESPIRE-ATONEMENT_POWER.title": "Atonement"
 }

@@ -24,7 +24,6 @@ public class PrayerOfMendingPower() : WoWTheSpirePower {
             lowHealth = creature.CurrentHp;
             newOwner = creature;
         }
-        var oldAmount = Amount;
         PowerCmd.Remove(this);
         PowerCmd.Apply<PrayerOfMendingPower>(choiceContext, newOwner, Amount-1, Applier, null);
         return base.AfterDamageReceived(choiceContext, target, result, props, dealer, cardSource);
