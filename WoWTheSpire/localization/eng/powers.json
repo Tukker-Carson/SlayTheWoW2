@@ -52,5 +52,14 @@
   "WOWTHESPIRE-ARCHANGEL_POWER.title": "Archangel",
   "WOWTHESPIRE-ATONEMENT_POWER.description": "[gold]Holy[/gold] attacks heal the lowest HP friendly target (by percent) for [blue]25%[/blue] of unblocked damage dealt.",
   "WOWTHESPIRE-ATONEMENT_POWER.smartDescription": "[gold]Holy[/gold] attacks heal the lowest HP friendly target (by percent) for [blue]{SpecAmount:diff()}[/blue]% of unblocked damage dealt.",
-  "WOWTHESPIRE-ATONEMENT_POWER.title": "Atonement"
+  "WOWTHESPIRE-ATONEMENT_POWER.title": "Atonement",
+  "WOWTHESPIRE-FOCUSED_WILL_POWER.description": "Your next [gold]Holy[/gold] card is free to play.",
+  "WOWTHESPIRE-FOCUSED_WILL_POWER.smartDescription": "Your next {Amount} [gold]Holy[/gold] {Amount:plural:card is|cards are} free to play.",
+  "WOWTHESPIRE-FOCUSED_WILL_POWER.title": "Focused Will",
+  "WOWTHESPIRE-REFLECTIVE_SHIELD_POWER.description": "Reflect a portion of blocked damage.",
+  "WOWTHESPIRE-REFLECTIVE_SHIELD_POWER.smartDescription": "Reflect [blue]{ShowAmount}%[/blue] of blocked damage.",
+  "WOWTHESPIRE-REFLECTIVE_SHIELD_POWER.title": "Reflective Shield",
+  "WOWTHESPIRE-SHADOWY_APPARITION_POWER.description": "When one of your [gold] s[/gold] deals damage, if in [gold]Shadow Form[/gold], deal extra damage.",
+  "WOWTHESPIRE-SHADOWY_APPARITION_POWER.smartDescription": "When one of your [gold]DoTs[/gold] deals damage, if in [gold]Shadow Form[/gold], deal {Amount} extra damage.",
+  "WOWTHESPIRE-SHADOWY_APPARITION_POWER.title": "Shadowy Apparition"
 }

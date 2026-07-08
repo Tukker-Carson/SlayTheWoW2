@@ -8,8 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Platform;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
+namespace WoWTheSpire.WoWTheSpireCode.Powers;
 
 public abstract class BaseDoT : WoWTheSpirePower {
     public override PowerType Type => PowerType.Debuff;
@@ -18,13 +19,19 @@ public abstract class BaseDoT : WoWTheSpirePower {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(0, ValueProp.Unpowered),
         new StringVar("Applier"),
-        new IntVar("Potency", 0),
-        new BoolVar("ApplierIsYou", true)
+        new BoolVar("ApplierIsYou", true),
+        new IntVar("Potency", 0)
     ];
     
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         if (side == Owner.Side) return;
-        await CreatureCmd.Damage(choiceContext, Owner, DynamicVars.Damage.BaseValue, ValueProp.Unpowered, Owner, null);
+        await CreatureCmd.Damage(
+            choiceContext,
+            Owner, 
+            DynamicVars.Damage.BaseValue, 
+            ValueProp.Unpowered, 
+            Owner, 
+            null);
         await PowerCmd.Decrement(this);
     }
     
@@ -36,13 +43,18 @@ public abstract class BaseDoT : WoWTheSpirePower {
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
-        if (power != this || cardSource == null)
-            return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
-        
-        DynamicVars.Damage.BaseValue = Math.Max(DynamicVars.Damage.BaseValue, cardSource.DynamicVars["Potency"].BaseValue);
-        DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
-        PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
+        if (power != this && power is not ShadowyApparitionPower || cardSource == null)
+            return Task.CompletedTask;
 
-        return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
+        if (power == this) {
+            DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue,
+                cardSource.DynamicVars["Potency"].BaseValue);
+            DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
+            PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
+        }
+        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowyApparitionPower>()?
+            Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
+
+        return Task.CompletedTask;
     }
 }
