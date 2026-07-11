@@ -81,7 +81,7 @@
   "WOWTHESPIRE-MIND_VISION.title": "Mind Vision",
   "WOWTHESPIRE-MIND_SOOTHE.description": "If the enemy intends to attack{IfUpgraded:show:| and you are in [gold]Shadow Form[/gold]}, gain {ShadowOrbPower:diff()} [gold]Shadow Orb[/gold].",
   "WOWTHESPIRE-MIND_SOOTHE.title": "Mind Soothe",
-  "WOWTHESPIRE-HOLY_NOVA.description": "Heal {Damage:diff()} HP and deal {Damage:diff()} damage to ALL enemies.",
+  "WOWTHESPIRE-HOLY_NOVA.description": "Heal/Deal {GenericAmount:diff()} HP/damage divided equally among ALL creatures. You can upgrade this card any amount of times.",
   "WOWTHESPIRE-HOLY_NOVA.title": "Holy Nova",
   "WOWTHESPIRE-HOLY_FIRE.description": "Deal {Damage:diff()} damage and apply a [gold]DoT[/gold] on the target, dealing ![gold]damage2[/gold]! damage each turn for 4 turns.\\n*Smite does 3 more damage to targets affected by Holy Fire.",
   "WOWTHESPIRE-HOLY_FIRE.title": "Holy Fire",
