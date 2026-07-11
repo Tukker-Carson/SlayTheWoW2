@@ -14,8 +14,7 @@ public class WeakenedSoulPower() : WoWTheSpirePower
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakenedSoulPower>(1)];
     
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
-        if (side != CombatSide.Enemy)
-            return;
+        if (!participants.Contains(Owner)) return;
         await PowerCmd.TickDownDuration(this);
     }
 

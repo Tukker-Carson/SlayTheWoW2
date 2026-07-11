@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Random;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
     
-public class MassDispel() : PriestCard(1, CardType.Skill, CardRarity.Common, CustomTargetType.Everyone) {
+public class MassDispel() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, CustomTargetType.Everyone) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {

@@ -67,5 +67,11 @@
   "WOWTHESPIRE-PAIN_SUPPRESSION_POWER.title": "Pain Suppression",
   "WOWTHESPIRE-SHADOW_FIEND_POWER.description": "[gold]DoT[/gold]. [gold]Shadow Fiend[/gold] deals damage at the end of the creature's turn and gives the applier [blue]1[/blue] card at the beginning of their next turn.",
   "WOWTHESPIRE-SHADOW_FIEND_POWER.smartDescription": "[gold]DoT[/gold]. Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn. [gold]{Applier}[/gold] {ApplierIsYou:draw|draws} a card each turn.",
-  "WOWTHESPIRE-SHADOW_FIEND_POWER.title": "Shadow Fiend"
+  "WOWTHESPIRE-SHADOW_FIEND_POWER.title": "Shadow Fiend",
+  "WOWTHESPIRE-HOLY_WORD_SERENITY_POWER.description": "At the beginning of your next turn, heal ALL allies damage all enemies.",
+  "WOWTHESPIRE-HOLY_WORD_SERENITY_POWER.smartDescription": "At the beginning of your next turn, heal ALL allies for [blue]{Heal:diff()}[/blue] HP and deal [blue]{Damage:diff()}[/blue] to all enemies.",
+  "WOWTHESPIRE-HOLY_WORD_SERENITY_POWER.title": "Holy Word: Serenity",
+  "WOWTHESPIRE-MEDITATION_POWER.description": "After playing [blue]4[/blue] cards, gain an energy.",
+  "WOWTHESPIRE-MEDITATION_POWER.smartDescription": "After playing [blue]{Amount}[/blue] more cards, gain{energyPrefix:energyIcons(1)}.",
+  "WOWTHESPIRE-MEDITATION_POWER.title": "Meditation"
 }
