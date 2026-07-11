@@ -22,16 +22,20 @@ public abstract class BaseDoT : WoWTheSpirePower {
         new BoolVar("ApplierIsYou", true),
         new IntVar("Potency", 0)
     ];
-    
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
-        if (side == Owner.Side) return;
-        await CreatureCmd.Damage(
+
+    protected Task Tick(PlayerChoiceContext choiceContext) {
+        return CreatureCmd.Damage(
             choiceContext,
             Owner, 
             DynamicVars.Damage.BaseValue, 
             ValueProp.Unpowered, 
             Owner, 
             null);
+    }
+    
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
+        if (!participants.Contains(Owner)) return;
+        await Tick(choiceContext);
         await PowerCmd.Decrement(this);
     }
     
