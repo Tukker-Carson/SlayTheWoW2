@@ -89,7 +89,7 @@
   "WOWTHESPIRE-PAIN_SUPPRESSION.title": "Pain Suppression",
   "WOWTHESPIRE-SHADOW_FIEND.description": "Put a [gold]DoT[/gold] on the target, dealing {Potency:diff()} damage and causing you to draw 1 card for {ShadowFiendPower:diff()} turns.",
   "WOWTHESPIRE-SHADOW_FIEND.title": "ShadowFiend",
-  "WOWTHESPIRE-HOLY_WORD_CHASTISE.description": "Deal {Damage:diff()} damage.",
+  "WOWTHESPIRE-HOLY_WORD_CHASTISE.description": "Deal {Damage:diff()} damage. \\n If you play a [gold]Holy[/gold] card, automatically play this card and draw a card.",
   "WOWTHESPIRE-HOLY_WORD_CHASTISE.title": "Holy Word: Chastise",
   "WOWTHESPIRE-HOLY_WORD_SERENITY.description": "At the beginning of the next !M! turns, heal 5 HP and do 5 damage to ALL enemies.",
   "WOWTHESPIRE-HOLY_WORD_SERENITY.title": "Holy Word: Serenity",
