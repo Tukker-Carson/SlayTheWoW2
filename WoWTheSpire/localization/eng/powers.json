@@ -11,7 +11,7 @@
   "WOWTHESPIRE-PRAYER_OF_MENDING_POWER.description": "Heal upon taking attack damage. This effect jumps to the lowest health ally upon triggering.",
   "WOWTHESPIRE-PRAYER_OF_MENDING_POWER.smartDescription": "Upon taking damage, heal [blue]{Amount}[/blue] HP. [gold]Prayer of Mending[/gold] jumps to the lowest health ally upon triggering.",
   "WOWTHESPIRE-PRAYER_OF_MENDING_POWER.title": "Prayer Of Mending",
-  "WOWTHESPIRE-RENEW_POWER.description": "[gold]Renew[/gold] heals HP at the end of your turn. Each turn, [gold]Renew[/gold] is reduced by [blue]1[/blue]. [gold]Renew[/blue] does not stack, but the resulting buff will contain the better length and potency.",
+  "WOWTHESPIRE-RENEW_POWER.description": "[gold]Renew[/gold] heals HP at the end of your turn. Each turn, [gold]Renew[/gold] is reduced by [blue]1[/blue]. [gold]Renew[/gold] does not stack, but the resulting buff will contain the better length and potency.",
   "WOWTHESPIRE-RENEW_POWER.smartDescription": "At the end of your turn, heal [blue]{Heal:diff()}[/blue] HP, then reduce [gold]Renew[/gold] by [blue]1[/blue].",
   "WOWTHESPIRE-RENEW_POWER.title": "Renew",
   "WOWTHESPIRE-SHADOW_WORD_PAIN_POWER.description": "[gold]DoT[/gold]. [gold]Shadow Word: Pain[/gold] deals damage at the end of the creature's turn.",
@@ -76,5 +76,8 @@
   "WOWTHESPIRE-MEDITATION_POWER.title": "Meditation",
   "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.description": "If you would die, instead go into [gold]Spirit Form[/gold] and die when the effect turns.",
   "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.smartDescription": "{Active:In [gold]Spirit Form[/gold]. This player receives [blue]50%[/blue] more healing but will die in [blue]{Amount}[/blue] turns. |When this player would die, instead they go into [gold]Spirit Form[/gold] and die in {Amount} turns.}",
-  "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.title": "Spirit Of Redemption"
+  "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.title": "Spirit Of Redemption",
+  "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.description": "When healed by [gold]Renew[/gold], deal an equal amount of damage to a random enemy.",
+  "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.smartDescription": "When healed by [gold]Renew[/gold], deal {Amount:cond:>1?{Amount} times that|an equal} amount as damage to a random enemy.",
+  "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.title": "Circle Of Healing"
 }

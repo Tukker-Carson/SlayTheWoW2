@@ -15,16 +15,17 @@ public sealed class SpiritOfRedemptionPower: WoWTheSpirePower, IHealAmountModifi
     public override PowerStackType StackType => PowerStackType.Counter;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BoolVar("Active", false)];
 
-    public override bool ShouldDie(Creature creature) {
-        if (creature != Owner) return true;
+    public override bool ShouldDie(Creature creature) => creature != Owner;
+    
+    public override async Task AfterPreventingDeath(Creature creature) {
         DynamicVars["Active"].BaseValue = 1;
-        CreatureCmd.SetCurrentHp(Owner, 1);
-        return false;
+        await CreatureCmd.Heal(Owner, 1);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         if (!participants.Contains(Owner) ||  DynamicVars["Active"].BaseValue == 0) return;
         await PowerCmd.TickDownDuration(this);
+        if (Amount == 0) await CreatureCmd.Kill(Owner, true);
     }
 
     public decimal ModifyHealMultiplicative(Creature creature, decimal amount) {
