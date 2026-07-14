@@ -29,9 +29,9 @@
   "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.description": "All allies take less attack damage.",
   "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.smartDescription": "All allies take [blue]{DamageDecrease:diff()}%[/blue] less attack damage.",
   "WOWTHESPIRE-POWER_WORD_BARRIER_POWER.title": "Power Word: Barrier",
-  "HYMN_OF_HOPE_POWER.description": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
-  "HYMN_OF_HOPE_POWER.smartDescription": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
-  "HYMN_OF_HOPE_POWER.title": "Hymn Of Hope",
+  "WOWTHESPIRE-HYMN_OF_HOPE_POWER.description": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
+  "WOWTHESPIRE-HYMN_OF_HOPE_POWER.smartDescription": "Gain an extra {energyPrefix:energyIcons(1)} at the start of every turn.",
+  "WOWTHESPIRE-HYMN_OF_HOPE_POWER.title": "Hymn Of Hope",
   "WOWTHESPIRE-DISPERSION_POWER.description": "Take 90% less attack damage from enemies.",
   "WOWTHESPIRE-DISPERSION_POWER.smartDescription": "Take 90% less attack damage from enemies.",
   "WOWTHESPIRE-DISPERSION_POWER.title": "Dispersion",
@@ -73,5 +73,8 @@
   "WOWTHESPIRE-HOLY_WORD_SERENITY_POWER.title": "Holy Word: Serenity",
   "WOWTHESPIRE-MEDITATION_POWER.description": "After playing [blue]4[/blue] cards, gain an energy.",
   "WOWTHESPIRE-MEDITATION_POWER.smartDescription": "After playing [blue]{Amount}[/blue] more cards, gain{energyPrefix:energyIcons(1)}.",
-  "WOWTHESPIRE-MEDITATION_POWER.title": "Meditation"
+  "WOWTHESPIRE-MEDITATION_POWER.title": "Meditation",
+  "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.description": "If you would die, instead go into [gold]Spirit Form[/gold] and die when the effect turns.",
+  "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.smartDescription": "{Active:In [gold]Spirit Form[/gold]. This player receives [blue]50%[/blue] more healing but will die in [blue]{Amount}[/blue] turns. |When this player would die, instead they go into [gold]Spirit Form[/gold] and die in {Amount} turns.}",
+  "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.title": "Spirit Of Redemption"
 }

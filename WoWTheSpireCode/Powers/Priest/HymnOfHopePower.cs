@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-public sealed class HymnOfHopePower : PowerModel {
+public sealed class HymnOfHopePower : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
