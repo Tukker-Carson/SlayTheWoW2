@@ -79,5 +79,8 @@
   "WOWTHESPIRE-SPIRIT_OF_REDEMPTION_POWER.title": "Spirit Of Redemption",
   "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.description": "When healed by [gold]Renew[/gold], deal an equal amount of damage to a random enemy.",
   "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.smartDescription": "When healed by [gold]Renew[/gold], deal {Amount:cond:>1?{Amount} times that|an equal} amount as damage to a random enemy.",
-  "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.title": "Circle Of Healing"
+  "WOWTHESPIRE-CIRCLE_OF_HEALING_POWER.title": "Circle Of Healing",
+  "WOWTHESPIRE-CHAKRA_CHASTISE_POWER.description": "[gold]Holy[/gold] cards deal [blue]50%[/blue] more damage.",
+  "WOWTHESPIRE-CHAKRA_CHASTISE_POWER.smartDescription": "[gold]Holy[/gold] cards deal [blue]{DisplayAmount:diff()}%[/blue] more damage.",
+  "WOWTHESPIRE-CHAKRA_CHASTISE_POWER.title": "Chakra: Chastise"
 }
