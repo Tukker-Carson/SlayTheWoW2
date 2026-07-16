@@ -1,9 +1,7 @@
-﻿using BaseLib.Patches.Features;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Random;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
     

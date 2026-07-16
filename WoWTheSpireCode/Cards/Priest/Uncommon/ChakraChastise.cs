@@ -6,7 +6,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 
-public class ChakraChastise() : PriestCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self) {
+public class ChakraChastise() : PriestCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ChakraChastisePower>(1)];
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
@@ -15,9 +15,7 @@ public class ChakraChastise() : PriestCard(2, CardType.Skill, CardRarity.Uncommo
             DynamicVars[nameof(ChakraChastisePower)].BaseValue,
             Owner.Creature,
             this);
-        
-        await PowerCmd.Remove<ShadowOrbPower>(Owner.Creature);
     }
 
-    protected override void OnUpgrade() => EnergyCost.UpgradeBy(1);
+    protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);
 }
