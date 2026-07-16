@@ -111,7 +111,7 @@
   "WOWTHESPIRE-CHAKRA_SERENITY.title": "Chakra: Serenity",
   "WOWTHESPIRE-CHAKRA_SANCTUARY.description": "Every 3 [gold]Holy[/gold] cards you play each turn, gain {Potency} [gold]Blessed[/gold].",
   "WOWTHESPIRE-CHAKRA_SANCTUARY.title": "Chakra: Sanctuary",
-  "WOWTHESPIRE-SERENDIPITY.description": "Gain !M! [gold]Blessed[/gold].",
+  "WOWTHESPIRE-SERENDIPITY.description": "Gain {BlessedPower:diff()} [gold]Blessed[/gold].",
   "WOWTHESPIRE-SERENDIPITY.title": "Serendipity",
   "WOWTHESPIRE-RAPID_RENEWAL.description": "Gain 2 [gold]Renew[/gold] (7).\\nIf you already have *Renew, double its potency instead.",
   "WOWTHESPIRE-RAPID_RENEWAL.title": "Rapid Renewal",

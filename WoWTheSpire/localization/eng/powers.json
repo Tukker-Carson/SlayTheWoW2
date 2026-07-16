@@ -87,7 +87,7 @@
   "WOWTHESPIRE-CHAKRA_SERENITY_POWER.smartDescription": "When you play a power, gain [blue]{Amount}[/blue] [gold]Renew[/gold] ([blue]4[/blue]). If you already have [gold]Renew[/gold], increase its length and potency by [blue]{Amount}[/blue] instead.",
   "WOWTHESPIRE-CHAKRA_SERENITY_POWER.title": "Chakra: Serenity",
   "WOWTHESPIRE-CHAKRA_SANCTUARY_POWER.description": "Every [blue]3[/blue] [gold]Holy[/gold] cards you play each turn, gain [blue]1[/blue] [gold]Blessed[/gold].",
-  "WOWTHESPIRE-CHAKRA_SANCTUARY_POWER.smartDescription": "Play [blue]{Amount}[/blue] more [gold]Holy[/gold] {Amount:Plural:cards|card} this turn to gain [blue]{Potency}[/blue] [gold]Blessed[/gold].",
+  "WOWTHESPIRE-CHAKRA_SANCTUARY_POWER.smartDescription": "Play [blue]{Amount}[/blue] more [gold]Holy[/gold] {Amount:plural:cards|card} this turn to gain [blue]{Potency}[/blue] [gold]Blessed[/gold].",
   "WOWTHESPIRE-CHAKRA_SANCTUARY_POWER.title": "Chakra: Sanctuary",
   "WOWTHESPIRE-BLESSED_POWER.description": "Increases the amount of healing received.",
   "WOWTHESPIRE-BLESSED_POWER.smartDescription": "When you receive healing, increase the amount by [blue]{Amount}[/blue] HP.",
