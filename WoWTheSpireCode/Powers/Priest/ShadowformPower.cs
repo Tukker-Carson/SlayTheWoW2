@@ -15,7 +15,7 @@ public class ShadowformPower() : WoWTheSpirePower
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource) {
+        CardModel? cardSource, CardPlay? cardPlay) {
         if (!props.IsPoweredAttack()) return 1;
         if (Owner == dealer) return 1.1M;
         if (Owner == target) return 0.9M;

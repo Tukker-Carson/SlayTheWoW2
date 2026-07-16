@@ -18,7 +18,7 @@ public class ArchangelPower : WoWTheSpirePower {
 
     
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource) {
+        CardModel? cardSource, CardPlay? cardPlay) {
         return dealer != Owner || !props.IsPoweredAttack() ? 1 : 1+DynamicVars["Potency"].BaseValue / 100;
     }
     

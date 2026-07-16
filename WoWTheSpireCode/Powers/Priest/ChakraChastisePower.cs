@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,7 +15,7 @@ public class ChakraChastisePower() : WoWTheSpirePower
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("DisplayAmount", 50)];
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource) {
+        CardModel? cardSource, CardPlay? cardPlay) {
         return !props.IsPoweredAttack() || Owner != dealer ? 1 : 1+Amount/2M;
     }
 

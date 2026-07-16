@@ -17,7 +17,7 @@ public class MindFlay() : PriestCard(1, CardType.Attack, CardRarity.Uncommon, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     protected override void OnUpgrade() => DynamicVars.ExtraDamage.UpgradeValueBy(4);

@@ -17,7 +17,7 @@ public class DispersionPower : WoWTheSpirePower {
 
     
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource) {
+        CardModel? cardSource, CardPlay? cardPlay) {
         return target != Owner || !props.IsPoweredAttack() ? 1 : DynamicVars["DamageDecrease"].BaseValue / 100;
     }
 

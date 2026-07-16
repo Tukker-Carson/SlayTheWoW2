@@ -21,7 +21,7 @@ public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, Custo
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         if (play.Target.IsEnemy)
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play)
                 .WithHitCount(DynamicVars.Repeat.IntValue).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
         else { 

@@ -20,7 +20,7 @@ public class HolyFire() : PriestCard(1, CardType.Attack, CardRarity.Uncommon, Ta
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<HolyFirePower>(new ThrowingPlayerChoiceContext(),
             play.Target,
             DynamicVars[nameof(HolyFirePower)].BaseValue,

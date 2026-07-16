@@ -18,7 +18,7 @@ public class HolyNova() : PriestCard(2, CardType.Attack, CardRarity.Uncommon, Cu
         ArgumentNullException.ThrowIfNull(CombatState);
         foreach (var ally in CombatState.Allies)  
             await CreatureCmd.Heal(ally, DynamicVars["GenericAmount"].BaseValue/CombatState.Creatures.Count);
-        await DamageCmd.Attack(DynamicVars["GenericAmount"].BaseValue/CombatState.Creatures.Count).FromCard(this).TargetingAllOpponents(CombatState)
+        await DamageCmd.Attack(DynamicVars["GenericAmount"].BaseValue/CombatState.Creatures.Count).FromCard(this, play).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3").Execute(choiceContext);
     }
 

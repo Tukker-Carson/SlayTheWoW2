@@ -15,10 +15,10 @@ public class MassDispel() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, C
         foreach (var creature in CombatState.Creatures)
             if (CombatState.Allies.Contains(creature)) {
                 var debuffs = creature.Powers.Where(x => x.Type == PowerType.Debuff).ToList();
-                if (debuffs.Count != 0) await PowerCmd.Remove(debuffs[new MegaRandom().Next(debuffs.Count)]);
+                if (debuffs.Count != 0) await PowerCmd.Remove(debuffs[Owner.RunState.Rng.Niche.NextInt(debuffs.Count)]);
             } else {
                 var buffs = creature.Powers.Where(x => x.Type == PowerType.Buff).ToList();
-                if (buffs.Count != 0) await PowerCmd.Remove(buffs[new MegaRandom().Next(buffs.Count)]);
+                if (buffs.Count != 0) await PowerCmd.Remove(buffs[Owner.RunState.Rng.Niche.NextInt(buffs.Count)]);
             }
     }
 

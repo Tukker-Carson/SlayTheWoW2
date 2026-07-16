@@ -30,6 +30,7 @@ public abstract class BaseDoT : WoWTheSpirePower {
             DynamicVars.Damage.BaseValue, 
             ValueProp.Unpowered, 
             Owner, 
+            null,
             null);
     }
     

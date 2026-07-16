@@ -13,7 +13,7 @@ public class Purify() : PriestCard(1, CardType.Skill, CardRarity.Common, TargetT
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         var buffs = play.Target.Powers.Where(x => x.Type == PowerType.Buff).ToList();
-        if (buffs.Count != 0) await PowerCmd.Remove(buffs[new MegaRandom().Next(buffs.Count)]);
+        if (buffs.Count != 0) await PowerCmd.Remove(buffs[Owner.RunState.Rng.Niche.NextInt(buffs.Count)]);
     }
 
     protected override void OnUpgrade() => RemoveKeyword(CardKeyword.Exhaust);

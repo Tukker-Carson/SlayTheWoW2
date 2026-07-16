@@ -23,7 +23,7 @@ public class ShadowWordDeath() : PriestCard(0, CardType.Attack, CardRarity.Commo
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         
         if (Owner.Creature.HasPower<ShadowformPower>()) 
             await PowerCmd.Apply<ShadowOrbPower>(new ThrowingPlayerChoiceContext(),

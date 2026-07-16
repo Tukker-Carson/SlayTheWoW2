@@ -13,7 +13,7 @@ public class DispelMagic() : PriestCard(1, CardType.Skill, CardRarity.Common, Ta
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         var target = play.Target ?? Owner.Creature;
         var debuffs = target.Powers.Where(x => x.Type == PowerType.Debuff).ToList();
-        if (debuffs.Count != 0) await PowerCmd.Remove(debuffs[new MegaRandom().Next(debuffs.Count)]);
+        if (debuffs.Count != 0) await PowerCmd.Remove(debuffs[Owner.RunState.Rng.Niche.NextInt(debuffs.Count)]);
     }
 
     protected override void OnUpgrade() => RemoveKeyword(CardKeyword.Exhaust);

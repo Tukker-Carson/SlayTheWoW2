@@ -19,7 +19,7 @@ public class MindSear() : PriestCard(2, CardType.Attack, CardRarity.Uncommon, Ta
         ArgumentNullException.ThrowIfNull(CombatState);
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         foreach (var enemy in CombatState.Enemies) if (enemy != play.Target) 
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(enemy).WithHitCount(DynamicVars.Repeat.IntValue).Execute(choiceContext);
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(enemy).WithHitCount(DynamicVars.Repeat.IntValue).Execute(choiceContext);
         
         if (Owner.Creature.HasPower<ShadowformPower>()) {
             await PowerCmd.Apply<ShadowOrbPower>(new ThrowingPlayerChoiceContext(),
