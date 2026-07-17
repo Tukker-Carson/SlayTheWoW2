@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 using WoWTheSpire.WoWTheSpireCode.Powers;
 using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
@@ -16,7 +17,7 @@ public class FlashHeal() : PriestCard(1, CardType.Skill, CardRarity.Common, Targ
     public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
     }
 
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(3);

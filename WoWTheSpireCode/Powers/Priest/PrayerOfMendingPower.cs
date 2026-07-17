@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
@@ -11,11 +12,11 @@ public class PrayerOfMendingPower() : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
-        Creature? dealer, CardModel? cardSource) {
-        if (target != Owner || result.UnblockedDamage < 1)
-            return base.AfterDamageReceived(choiceContext, target, result, props, dealer, cardSource);
-        CreatureCmd.Heal(target, Amount);
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        if (target != Owner || result.UnblockedDamage < 1) return;
+        await WoWCmd.Heal(target, Owner, Amount, ValueProp.Unpowered, null);
         var lowHealth = 0;
         var newOwner = Owner;
         foreach (var creature in CombatState.GetTeammatesOf(Owner)
@@ -24,8 +25,7 @@ public class PrayerOfMendingPower() : WoWTheSpirePower {
             lowHealth = creature.CurrentHp;
             newOwner = creature;
         }
-        PowerCmd.Remove(this);
-        PowerCmd.Apply<PrayerOfMendingPower>(choiceContext, newOwner, Amount-1, Applier, null);
-        return base.AfterDamageReceived(choiceContext, target, result, props, dealer, cardSource);
+        await PowerCmd.Remove(this);
+        await PowerCmd.Apply<PrayerOfMendingPower>(choiceContext, newOwner, Amount-1, Applier, null);
     }
 }

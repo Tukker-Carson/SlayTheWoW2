@@ -1,4 +1,5 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -30,7 +31,7 @@ public class AtonementPower() : WoWTheSpirePower {
             lowHealth = creature.CurrentHp;
             newOwner = creature;
         }
-        await CreatureCmd.Heal(newOwner, (decimal)result.UnblockedDamage*Amount/4);
+        await WoWCmd.Heal(newOwner, Owner, (decimal)result.UnblockedDamage*Amount/4, ValueProp.Move, null);
     }
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount,

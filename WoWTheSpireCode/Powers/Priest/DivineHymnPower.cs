@@ -5,6 +5,8 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
@@ -13,6 +15,6 @@ public class DivineHymnPower : WoWTheSpirePower {
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
-        if (participants.Contains(Owner)) await CreatureCmd.Heal(Owner, Amount);
+        if (participants.Contains(Owner)) await WoWCmd.Heal(Owner, Owner, Amount, ValueProp.Unpowered, null);
     }
 }

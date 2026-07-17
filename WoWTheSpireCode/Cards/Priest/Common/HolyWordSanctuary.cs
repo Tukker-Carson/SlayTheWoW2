@@ -15,7 +15,7 @@ public class HolyWordSanctuary() : PriestCard(1, CardType.Attack, CardRarity.Com
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
     }
     
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy) {

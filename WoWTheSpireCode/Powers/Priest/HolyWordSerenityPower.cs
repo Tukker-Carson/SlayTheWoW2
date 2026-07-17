@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
@@ -17,7 +18,7 @@ public class HolyWordSerenityPower : WoWTheSpirePower {
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (!participants.Contains(Owner)) return;
         foreach (var creature in CombatState.Creatures)
-            if (creature.Side == Owner.Side) await CreatureCmd.Heal(creature, DynamicVars.Heal.BaseValue);
+            if (creature.Side == Owner.Side) await WoWCmd.Heal(creature, Owner, DynamicVars.Heal.BaseValue, ValueProp.Move, null);
             else await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), creature, DynamicVars.Damage, Owner);
         await PowerCmd.Decrement(this);
     }

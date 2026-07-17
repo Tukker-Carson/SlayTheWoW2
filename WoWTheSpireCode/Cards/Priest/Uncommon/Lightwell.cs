@@ -19,7 +19,7 @@ public class Lightwell() : PriestCard(0, CardType.Skill, CardRarity.Uncommon, Cu
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         var target = CombatState?.Creatures.Where(c => c.IsAlive).MinBy(c => c.CurrentHp) ?? Owner.Creature;
-        if (CombatState?.Allies.Contains(target) ?? true) await CreatureCmd.Heal(target, DynamicVars.Heal.BaseValue);
+        if (CombatState?.Allies.Contains(target) ?? true) await WoWCmd.Heal(target, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
         else await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

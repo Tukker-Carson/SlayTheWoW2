@@ -27,7 +27,7 @@ public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, Custo
         else { 
             VfxCmd.PlayOnCreature(play.Target,"vfx/vfx_scream");
             for (var i = 0; i < 3; i++) {
-                await CreatureCmd.Heal(play.Target, DynamicVars.Heal.BaseValue);
+                await WoWCmd.Heal(play.Target, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
             }
         }
     }

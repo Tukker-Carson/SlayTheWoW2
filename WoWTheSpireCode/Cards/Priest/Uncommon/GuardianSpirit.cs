@@ -23,7 +23,7 @@ public class GuardianSpirit() : PriestCard(0, CardType.Skill, CardRarity.Uncommo
     public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        await CreatureCmd.Heal(Owner.Creature, ((CalculatedVar)DynamicVars["Heal"]).Calculate(play.Target));
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, ((CalculatedVar)DynamicVars["Heal"]).Calculate(play.Target), ValueProp.Move, play);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.CalculatedBlock.Calculate(play.Target), DynamicVars.CalculatedBlock.Props, play);
     }
 

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
@@ -18,7 +19,7 @@ public class RenewPower : WoWTheSpirePower {
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         if (!participants.Contains(Owner)) return;
         var beforeHp = Owner.CurrentHp;
-        await CreatureCmd.Heal(Owner, DynamicVars.Heal.BaseValue);
+        await WoWCmd.Heal(Owner, Owner, DynamicVars.Heal.BaseValue, ValueProp.Move, null);
         if (Owner.Player is not null && CombatState.HittableEnemies.Count > 0 && Owner.HasPower<CircleOfHealingPower>()) 
             await CreatureCmd.Damage(choiceContext, Owner.Player.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies)!,
                 new DamageVar((Owner.CurrentHp-beforeHp)*Owner.GetPowerAmount<CircleOfHealingPower>(), ValueProp.Unpowered), Owner);

@@ -19,7 +19,7 @@ public sealed class SpiritOfRedemptionPower: WoWTheSpirePower, IHealAmountModifi
     
     public override async Task AfterPreventingDeath(Creature creature) {
         DynamicVars["Active"].BaseValue = 1;
-        await CreatureCmd.Heal(Owner, 1);
+        await CreatureCmd.SetCurrentHp(Owner, 1);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {

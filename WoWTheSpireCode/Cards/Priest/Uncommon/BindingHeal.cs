@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 using WoWTheSpire.WoWTheSpireCode.Powers;
@@ -18,8 +19,8 @@ public class BindingHeal() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
-        await CreatureCmd.Heal(play.Target, DynamicVars.Heal.BaseValue);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
+        await WoWCmd.Heal(play.Target, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
     }
 
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(6);
