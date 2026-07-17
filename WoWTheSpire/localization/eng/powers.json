@@ -91,5 +91,8 @@
   "WOWTHESPIRE-CHAKRA_SANCTUARY_POWER.title": "Chakra: Sanctuary",
   "WOWTHESPIRE-BLESSED_POWER.description": "Increases the amount of healing received.",
   "WOWTHESPIRE-BLESSED_POWER.smartDescription": "When you receive healing, increase the amount by [blue]{Amount}[/blue] HP.",
-  "WOWTHESPIRE-BLESSED_POWER.title": "Blessed"
+  "WOWTHESPIRE-BLESSED_POWER.title": "Blessed",
+  "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.description": "When you receive healing during combat, gain [blue]0[/blue] [gold]Renew[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the amount healed. ",
+  "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.smartDescription": "When you receive healing during combat, gain [blue]0[/blue] [gold]Renew[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the amount healed. ",
+  "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.title": "Echo Of Light"
 }

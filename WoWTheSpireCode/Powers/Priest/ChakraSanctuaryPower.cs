@@ -9,7 +9,7 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-public class ChakraSanctuaryPower() : WoWTheSpirePower {
+public class ChakraSanctuaryPower: WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("Potency", 0)];
