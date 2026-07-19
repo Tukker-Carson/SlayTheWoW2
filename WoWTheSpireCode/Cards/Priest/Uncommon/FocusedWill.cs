@@ -11,5 +11,5 @@ public class FocusedWill() : PriestCard(2, CardType.Skill, CardRarity.Uncommon, 
         return Task.CompletedTask;
     }
     
-    protected override void OnUpgrade() => EnergyCost.UpgradeBy(1);
+    protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);
 }

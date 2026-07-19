@@ -25,7 +25,7 @@ public class HolyWordSerenityPower : WoWTheSpirePower {
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
-        if (cardSource is null) return Task.CompletedTask;
+        if (power != this || cardSource is null) return Task.CompletedTask;
         DynamicVars.Heal.BaseValue = cardSource.DynamicVars.Heal.BaseValue;
         DynamicVars.Damage.BaseValue = cardSource.DynamicVars.Damage.BaseValue;
         return Task.CompletedTask;

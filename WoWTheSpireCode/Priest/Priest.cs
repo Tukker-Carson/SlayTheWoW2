@@ -32,7 +32,8 @@ public class Priest : PlaceholderCharacterModel
         ModelDb.Card<PriestDefend>(),
         ModelDb.Card<PriestDefend>(),
         ModelDb.Card<PriestDefend>(),
-        ModelDb.Card<PriestDefend>()
+        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<Shadowform>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

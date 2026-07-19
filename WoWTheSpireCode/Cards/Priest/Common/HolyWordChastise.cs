@@ -17,7 +17,7 @@ public class HolyWordChastise() : PriestCard(1, CardType.Attack, CardRarity.Comm
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
-        if (!cardPlay.Card.Keywords.Contains(WoWKeywords.Holy) || Pile != null && Pile.Type != PileType.Hand) return;
+        if (cardPlay.Card.Owner != Owner || !cardPlay.Card.Keywords.Contains(WoWKeywords.Holy) || Pile != null && Pile.Type != PileType.Hand) return;
         await CardCmd.AutoPlay(choiceContext, this, null);
         await CardPileCmd.Draw(choiceContext, Owner);
     }

@@ -8,7 +8,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 
-public class Atonement() : PriestCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self) {
+public class Atonement() : PriestCard(2, CardType.Power, CardRarity.Rare, TargetType.Self) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<AtonementPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
 

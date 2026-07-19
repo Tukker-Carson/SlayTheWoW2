@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
@@ -24,7 +23,6 @@ public class PainSuppressionPower : WoWTheSpirePower {
     }
     
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
-        if (!participants.Contains(Owner)) return;
-        await PowerCmd.Decrement(this);
+        if (participants.Contains(Owner)) await PowerCmd.Decrement(this);
     }
 }

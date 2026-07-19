@@ -16,7 +16,7 @@ public class HolyFire() : PriestCard(1, CardType.Attack, CardRarity.Uncommon, Ta
         new DamageVar(2, ValueProp.Move)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HolyFirePower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.DoT];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.DoT, WoWKeywords.Holy];
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
