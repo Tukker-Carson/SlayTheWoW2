@@ -15,6 +15,4 @@ public sealed class EchoOfLightPower: WoWTheSpirePower, IWoWHealListener {
             target.GetPower<RenewPower>()!.DynamicVars.Heal.BaseValue = Math.Max(target.GetPower<RenewPower>()!.DynamicVars.Heal.BaseValue, amount);
         return Task.CompletedTask;
     }
-    
-    
 }

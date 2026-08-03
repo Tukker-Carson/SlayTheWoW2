@@ -16,14 +16,14 @@ public class Dispersion() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, T
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override bool IsPlayable => Convert.ToBoolean(DynamicVars["Playable"].BaseValue);
 
-    public override Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command) {
-        DynamicVars["Playable"].BaseValue = 0;
-        return base.AfterAttack(choiceContext, command);
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
+        if (cardPlay.Player == Owner && cardPlay.Card.Type == CardType.Attack) DynamicVars["Playable"].BaseValue = 0;
+        return Task.CompletedTask;
     }
 
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
-        DynamicVars["Playable"].BaseValue = 1;
-        return base.AfterSideTurnEnd(choiceContext, side, participants);
+        if (participants.Contains(Owner.Creature)) DynamicVars["Playable"].BaseValue = 1;
+        return Task.CompletedTask;
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {

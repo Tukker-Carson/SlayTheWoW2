@@ -9,6 +9,7 @@ public class ShadowFiendPower : BaseDoT {
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         ArgumentNullException.ThrowIfNull(Applier);
         ArgumentNullException.ThrowIfNull(Applier.Player);
+        if (Applier.Player.Creature.IsDead) return;
         var enumerable = participants.ToList();
         await base.AfterSideTurnEnd(choiceContext, side, enumerable);
         if (enumerable.Contains(Owner))

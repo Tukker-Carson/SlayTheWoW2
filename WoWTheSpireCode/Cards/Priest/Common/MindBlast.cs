@@ -9,7 +9,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class MindBlast() : PriestCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move), new PowerVar<ShadowOrbPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, ValueProp.Move), new PowerVar<ShadowOrbPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowOrbPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
@@ -24,5 +24,5 @@ public class MindBlast() : PriestCard(2, CardType.Attack, CardRarity.Common, Tar
         }
     }
     
-    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(5);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(7);
 }

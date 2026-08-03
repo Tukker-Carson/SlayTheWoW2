@@ -12,7 +12,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class ShadowWordDeath() : PriestCard(0, CardType.Attack, CardRarity.Common, WoWTargetTypes.Any25PHpEnemies) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(16, ValueProp.Move),
+        new DamageVar(17, ValueProp.Move),
         new PowerVar<ShadowOrbPower>(1)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowOrbPower>()];

@@ -15,7 +15,7 @@ public class PrayerOfMendingPower() : WoWTheSpirePower {
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
-        if (target != Owner || result.UnblockedDamage < 1) return;
+        if (target != Owner || result.UnblockedDamage < 1 || Owner.IsDead) return;
         await WoWCmd.Heal(target, Owner, Amount, ValueProp.Unpowered, null);
         var lowHealth = 0;
         var newOwner = Owner;

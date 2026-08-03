@@ -21,8 +21,8 @@ public class PainSuppressionPower : WoWTheSpirePower {
         CardModel? cardSource, CardPlay? cardPlay) {
         return target != Owner || !props.IsPoweredAttack() ? 1 : (100-DynamicVars["DamageDecrease"].BaseValue) / 100;
     }
-    
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
+
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (participants.Contains(Owner)) await PowerCmd.Decrement(this);
     }
 }
