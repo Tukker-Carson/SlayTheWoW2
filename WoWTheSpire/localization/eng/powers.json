@@ -94,5 +94,8 @@
   "WOWTHESPIRE-BLESSED_POWER.title": "Blessed",
   "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.description": "When you receive healing during combat, gain [blue]0[/blue] [gold]Renew[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the amount healed. ",
   "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.smartDescription": "When you receive healing during combat, gain [blue]0[/blue] [gold]Renew[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the amount healed. ",
-  "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.title": "Echo Of Light"
+  "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.title": "Echo Of Light",
+  "WOWTHESPIRE-PSYFIEND_POWER.description": "At the beginning of each turn, the enemy with the most potent [gold]Fear[/gold] will have the length of this effect doubled.",
+  "WOWTHESPIRE-PSYFIEND_POWER.smartDescription": "At the beginning of your turn, increase the length of the most potent [gold]Fear[/gold] by [blue]{Amount:diff()}00%[/blue].",
+  "WOWTHESPIRE-PSYFIEND_POWER.title": "Psyfiend"
 }
