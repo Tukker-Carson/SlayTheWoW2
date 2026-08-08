@@ -96,6 +96,12 @@
   "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.smartDescription": "When you receive healing during combat, gain [blue]0[/blue] [gold]Renew[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the amount healed. ",
   "WOWTHESPIRE-ECHO_OF_LIGHT_POWER.title": "Echo Of Light",
   "WOWTHESPIRE-PSYFIEND_POWER.description": "At the beginning of each turn, the enemy with the most potent [gold]Fear[/gold] will have the length of this effect doubled.",
-  "WOWTHESPIRE-PSYFIEND_POWER.smartDescription": "At the beginning of your turn, increase the length of the most potent [gold]Fear[/gold] by [blue]{Amount:diff()}00%[/blue].",
-  "WOWTHESPIRE-PSYFIEND_POWER.title": "Psyfiend"
+  "WOWTHESPIRE-PSYFIEND_POWER.smartDescription": "At the beginning of your turn, increase the length of the most potent [gold]Fear[/gold] by [blue]{Amount}00%[/blue].",
+  "WOWTHESPIRE-PSYFIEND_POWER.title": "Psyfiend",
+  "WOWTHESPIRE-TEMPORARILY_BLESSED_POWER.description": "[gold]Blessed[/gold] goes away at the end of your turn.",
+  "WOWTHESPIRE-TEMPORARILY_BLESSED_POWER.smartDescription": "At the end of your turn, lose [blue]{Amount}[/blue] [gold]Blessed[/gold].",
+  "WOWTHESPIRE-TEMPORARILY_BLESSED_POWER.title": "Temporarily Blessed",
+  "WOWTHESPIRE-BODY_AND_SOUL_POWER.description": "Every time you gain block, gain temporary [gold]Blessed[/gold].",
+  "WOWTHESPIRE-BODY_AND_SOUL_POWER.smartDescription": "Every time [gold]{Applier}[/gold] {ApplierIsYou:gain|gains} block, gain [blue]{Amount}[/blue] temporary [gold]Blessed[/gold].",
+  "WOWTHESPIRE-BODY_AND_SOUL_POWER.title": "Body And Soul"
 }
