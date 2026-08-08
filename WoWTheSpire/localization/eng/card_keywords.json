@@ -1,6 +1,6 @@
 {
   "WOWTHESPIRE-HOLY.description": "Blessed by the gods of Azeroth.",
   "WOWTHESPIRE-HOLY.title": "Holy",
-  "WOWTHESPIRE-DOT.description": "Damage Over Time.",
+  "WOWTHESPIRE-DOT.description": "Damage Over Time: Deals damage at the end of the afflicted creature's turn.",
   "WOWTHESPIRE-DOT.title": "DoT"
 }

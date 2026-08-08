@@ -131,7 +131,7 @@
   "WOWTHESPIRE-ANGELIC_FEATHER.title": "Angelic Feather",
   "WOWTHESPIRE-PHANTASM.description": "Gain {BufferPower:diff()} [gold]Buffer[/gold]. Lose {BlessedPower:diff()} [gold]Blessed[/gold].",
   "WOWTHESPIRE-PHANTASM.title": "Phantasm",
-  "WOWTHESPIRE-MIND_BENDER.description": "Put a [gold]DoT[/gold] on the target, dealing {Damage:diff()} damage and extending the length of [gold]Fear[/gold] on the target by !M!.",
+  "WOWTHESPIRE-MIND_BENDER.description": "Put a [gold]DoT[/gold] on the target. For 3 turns, deal {Potency:diff()} damage and extend the duration of [gold]Fear[/gold] on the target by {Potency:diff()} hits.",
   "WOWTHESPIRE-MIND_BENDER.title": "Mindbender",
   "WOWTHESPIRE-POWER_WORD_SOLACE.description": "Deal {Damage:diff()} damage and apply a [gold]DoT[/gold] on the target, dealing ![gold]damage2[/gold]! damage each turn for !M! turns.\\nYou heal for 50% of unblocked damage done by Power Word: Solace.",
   "WOWTHESPIRE-POWER_WORD_SOLACE.title": "Power Word: Solace",

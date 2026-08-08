@@ -38,7 +38,7 @@
   "WOWTHESPIRE-DIVINE_HYMN_POWER.description": "Heal at the end of your turn.",
   "WOWTHESPIRE-DIVINE_HYMN_POWER.smartDescription": "Heal {Amount} HP at the end of your turn.",
   "WOWTHESPIRE-DIVINE_HYMN_POWER.title": "Divine Hymn",
-  "WOWTHESPIRE-FEAR_POWER.description": "[gold]DoT[/gold]. Feared creatures deal less damage to the applier.",
+  "WOWTHESPIRE-FEAR_POWER.description": "[gold]DoT[/gold]. Written X Fear Y, feared creatures deal Y less damage to the applier until attacked by the applier X times.",
   "WOWTHESPIRE-FEAR_POWER.smartDescription": "[gold]DoT[/gold]. This creature deals [blue]{Potency}[/blue] less damage to [gold]{Applier}[/gold]. Goes away after [gold]{Applier}[/gold] {ApplierIsYou:deal|deals} attack damage [blue]{Amount}[/blue] {Amount:plural:time|times}.",
   "WOWTHESPIRE-FEAR_POWER.title": "Fear",
   "WOWTHESPIRE-POWER_WORD_SPIRIT_POWER.description": "At the beginning of your turn, draw a card. If it's [gold]Holy[/gold], upgrade it. Otherwise, discard it.",
@@ -103,5 +103,8 @@
   "WOWTHESPIRE-TEMPORARILY_BLESSED_POWER.title": "Temporarily Blessed",
   "WOWTHESPIRE-BODY_AND_SOUL_POWER.description": "Every time you gain block, gain temporary [gold]Blessed[/gold].",
   "WOWTHESPIRE-BODY_AND_SOUL_POWER.smartDescription": "Every time [gold]{Applier}[/gold] {ApplierIsYou:gain|gains} block, gain [blue]{Amount}[/blue] temporary [gold]Blessed[/gold].",
-  "WOWTHESPIRE-BODY_AND_SOUL_POWER.title": "Body And Soul"
+  "WOWTHESPIRE-BODY_AND_SOUL_POWER.title": "Body And Soul",
+  "WOWTHESPIRE-MIND_BENDER_POWER.description": "[gold]DoT[/gold]. [gold]Shadow Word: Pain[/gold] deals damage at the end of the creature's turn.",
+  "WOWTHESPIRE-MIND_BENDER_POWER.smartDescription": "Takes [blue]{Potency:diff()}[/blue] damage and the duration of [gold]Fear[/gold] is increased by [blue]{Potency:diff()}[/blue] at the end of their turn.",
+  "WOWTHESPIRE-MIND_BENDER_POWER.title": "Mind Bender"
 }
