@@ -135,7 +135,7 @@
   "WOWTHESPIRE-MIND_BENDER.title": "Mind Bender",
   "WOWTHESPIRE-POWER_WORD_SOLACE.description": "Deal {Damage:diff()} damage and apply a [gold]DoT[/gold] on the target, dealing {Potency:diff()} damage each turn for {PowerWordSolacePower:diff()} turns.\\nYou heal for 50% of unblocked damage done by this [gold]DoT[/gold]",
   "WOWTHESPIRE-POWER_WORD_SOLACE.title": "Power Word: Solace",
-  "WOWTHESPIRE-DESPERATE_PRAYER.description": "Heal for 30% of your max HP.\\nExhaust.",
+  "WOWTHESPIRE-DESPERATE_PRAYER.description": "Heal for {CalculationExtra:diff()}% of your max HP.",
   "WOWTHESPIRE-DESPERATE_PRAYER.title": "Desperate Prayer",
   "WOWTHESPIRE-SPECTRAL_GUISE.description": "The next time you take damage before your next turn, apply 1 [gold]Fear[/gold] (X) where X is half the damage taken.",
   "WOWTHESPIRE-SPECTRAL_GUISE.title": "Spectral Guise",
