@@ -23,7 +23,7 @@ public abstract class BaseDoT : WoWTheSpirePower {
         new IntVar("Potency", 0)
     ];
 
-    protected Task Tick(PlayerChoiceContext choiceContext) {
+    protected Task<IEnumerable<DamageResult>> Tick(PlayerChoiceContext choiceContext) {
         return CreatureCmd.Damage(
             choiceContext,
             Owner, 
