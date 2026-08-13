@@ -109,5 +109,8 @@
   "WOWTHESPIRE-MIND_BENDER_POWER.title": "Mind Bender",
   "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.description": "[gold]DoT[/gold]. [gold]Power Word: Solace[/gold] deals damage at the end of the creature's turn. The applier heals for [blue]50%[/blue] of unblocked damage dealt.",
   "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.smartDescription": "[gold]DoT[/gold]. Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn. [gold]{Applier}[/gold] {ApplierIsYou:heal|heals} for [blue]50%[/blue] of unblocked damage dealt.",
-  "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.title": "Power Word: Solace"
+  "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.title": "Power Word: Solace",
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.description": "",
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.smartDescription": "",
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.title": "Spectral Guise"
 }
