@@ -9,7 +9,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 public class Psyfiend() : PriestCard(1, CardType.Power, CardRarity.Rare, TargetType.Self) {
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<PainSuppressionPower>(3),
+        new PowerVar<PsyfiendPower>(3),
         new ("BasePowerLevel", 3)
     ];
 
@@ -17,7 +17,7 @@ public class Psyfiend() : PriestCard(1, CardType.Power, CardRarity.Rare, TargetT
         await PowerCmd.Apply<PsyfiendPower>(
             new ThrowingPlayerChoiceContext(),
             Owner.Creature,
-            DynamicVars[nameof(PainSuppressionPower)].BaseValue,
+            DynamicVars[nameof(PsyfiendPower)].BaseValue,
             Owner.Creature,
             this);
     }

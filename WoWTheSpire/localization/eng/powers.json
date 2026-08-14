@@ -121,5 +121,8 @@
   "WOWTHESPIRE-TWIST_OF_FATE_POWER.title": "Twist Of Fate",
   "WOWTHESPIRE-POWER_INFUSION_POWER.description": "Gain an extra energy.",
   "WOWTHESPIRE-POWER_INFUSION_POWER.smartDescription": "Gain an extra energy for [blue]{Amount}[/blue] turns.",
-  "WOWTHESPIRE-POWER_INFUSION_POWER.title": "Power Infusion"
+  "WOWTHESPIRE-POWER_INFUSION_POWER.title": "Power Infusion",
+  "WOWTHESPIRE-DIVINE_INSIGHT_POWER.description": "At the beginning of the player's next turn, if this creature intends to attack, it gains [Gold]fear[/gold].",
+  "WOWTHESPIRE-DIVINE_INSIGHT_POWER.smartDescription": "At the beginning of the player's next turn, if this creature intends to attack, it gains [blue]{Amount}[/blue] [Gold]fear[/gold] ([blue]{Potency:diff()}[/blue]).",
+  "WOWTHESPIRE-DIVINE_INSIGHT_POWER.title": "Divine Insight"
 }

@@ -46,20 +46,16 @@ public abstract class BaseDoT : WoWTheSpirePower {
         return Task.CompletedTask;
     }
 
-    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
-        if (power != this && power is not ShadowyApparitionPower || cardSource == null)
-            return Task.CompletedTask;
+        if (power != this && power is not ShadowyApparitionPower && power is not ShadowformPower || cardSource == null) return;
 
         if (power == this) {
-            DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue,
-                cardSource.DynamicVars["Potency"].BaseValue);
+            DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue, cardSource.DynamicVars["Potency"].BaseValue);
             DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
-            PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
+            await PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
         }
-        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowyApparitionPower>()?
+        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() && Applier.HasPower<ShadowyApparitionPower>()?
             Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
-
-        return Task.CompletedTask;
     }
 }
