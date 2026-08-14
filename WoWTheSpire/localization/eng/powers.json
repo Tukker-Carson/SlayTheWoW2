@@ -110,7 +110,16 @@
   "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.description": "[gold]DoT[/gold]. [gold]Power Word: Solace[/gold] deals damage at the end of the creature's turn. The applier heals for [blue]50%[/blue] of unblocked damage dealt.",
   "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.smartDescription": "[gold]DoT[/gold]. Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn. [gold]{Applier}[/gold] {ApplierIsYou:heal|heals} for [blue]50%[/blue] of unblocked damage dealt.",
   "WOWTHESPIRE-POWER_WORD_SOLACE_POWER.title": "Power Word: Solace",
-  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.description": "",
-  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.smartDescription": "",
-  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.title": "Spectral Guise"
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.description": "The next time you take damage before your next turn, apply [blue]1[/blue] [gold]Fear[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the damage taken.",
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.smartDescription": "The next {Amount:plural:time| [blue]{Amount}[/blue] times} you take damage before your next turn, apply [blue]1[/blue] [gold]Fear[/gold] ([blue]X[/blue]) where [blue]X[/blue] is half the damage taken.",
+  "WOWTHESPIRE-SPECTRAL_GUISE_POWER.title": "Spectral Guise",
+  "WOWTHESPIRE-ANGELIC_BULWARK_POWER.description": "Whenever you take unblocked damage, gain [gold]Block[/gold]",
+  "WOWTHESPIRE-ANGELIC_BULWARK_POWER.smartDescription": "Whenever you take unblocked damage, gain [blue]{Amount}[/blue] [gold]Block[/gold]",
+  "WOWTHESPIRE-ANGELIC_BULWARK_POWER.title": "Angelic Bulwark",
+  "WOWTHESPIRE-TWIST_OF_FATE_POWER.description": "Deal [blue]50%[/blue] more damage and healing for the rest of combat.",
+  "WOWTHESPIRE-TWIST_OF_FATE_POWER.smartDescription": "Deal [blue]50%[/blue] more damage and healing for the rest of combat.",
+  "WOWTHESPIRE-TWIST_OF_FATE_POWER.title": "Twist Of Fate",
+  "WOWTHESPIRE-POWER_INFUSION_POWER.description": "Gain an extra energy.",
+  "WOWTHESPIRE-POWER_INFUSION_POWER.smartDescription": "Gain an extra energy for [blue]{Amount}[/blue] turns.",
+  "WOWTHESPIRE-POWER_INFUSION_POWER.title": "Power Infusion"
 }
