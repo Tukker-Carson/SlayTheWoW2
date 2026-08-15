@@ -17,6 +17,6 @@ public interface IWoWHealListener {
     /// <summary>Runs Before Heal and Amount Calculation</summary>
     Task AfterHealCalculated(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) => Task.CompletedTask;
     
-    /// <summary>Runs After Heal With Heal Amount</summary>
-    Task AfterHeal(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) => Task.CompletedTask;
+    /// <summary>Runs After Heal</summary>
+    Task AfterHeal(Creature target, Creature source, Decimal amount, Decimal overheal, ValueProp props, CardPlay? cardPlay) => Task.CompletedTask;
 }

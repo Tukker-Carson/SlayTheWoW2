@@ -3,11 +3,9 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
-using WoWTheSpire.WoWTheSpireCode.Cards;
 using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Basic;
-using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 using WoWTheSpire.WoWTheSpireCode.Extensions;
+using WoWTheSpire.WoWTheSpireCode.Relics;
 
 namespace WoWTheSpire.WoWTheSpireCode.Priest;
 
@@ -18,8 +16,8 @@ public class Priest : PlaceholderCharacterModel
     public static readonly Color Color = new("ffffff");
 
     public override Color NameColor => Color;
-    public override CharacterGender Gender => CharacterGender.Neutral;
-    public override int StartingHp => 70;
+    public override CharacterGender Gender => CharacterGender.Feminine;
+    public override int StartingHp => 32;
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
@@ -36,9 +34,8 @@ public class Priest : PlaceholderCharacterModel
         ModelDb.Card<Shadowform>()
     ];
 
-    public override IReadOnlyList<RelicModel> StartingRelics =>
-    [
-        ModelDb.Relic<BurningBlood>()
+    public override IReadOnlyList<RelicModel> StartingRelics => [
+        ModelDb.Relic<CloakOfDiscipline>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<PriestCardPool>();

@@ -35,9 +35,9 @@ public class WoWHooks {
     }
     
     
-    public static async Task AfterHeal(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) {
+    public static async Task AfterHeal(Creature target, Creature source, Decimal amount, Decimal overheal, ValueProp props, CardPlay? cardPlay) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()) {
-            await model.AfterHeal(target, source, amount, props, cardPlay);
+            await model.AfterHeal(target, source, amount, overheal, props, cardPlay);
             ((AbstractModel)model).InvokeExecutionFinished();
         }
     }
