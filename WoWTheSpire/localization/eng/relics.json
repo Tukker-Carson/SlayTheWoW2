@@ -1,5 +1,8 @@
 {
-  "WOWTHESPIRE-CLOAK_OF_DISCIPLINE.description": "Healing dealt past the target's max HP is converted to [gold]Block[/gold].",
+  "WOWTHESPIRE-CLOAK_OF_DISCIPLINE.description": "When you heal a target over their max HP, they gain double the overheal as [gold]Block[/gold].",
   "WOWTHESPIRE-CLOAK_OF_DISCIPLINE.flavor": "\"...and his music was electric\"",
-  "WOWTHESPIRE-CLOAK_OF_DISCIPLINE.title": "Cloak Of Discipline"
+  "WOWTHESPIRE-CLOAK_OF_DISCIPLINE.title": "Cloak of Discipline",
+  "WOWTHESPIRE-CLOAK_OF_THE_DISCIPLE.description": "When you heal a target, they gain an equal amount of [gold]Block[/gold]. Overhealing gives double the [gold]Block[/gold].",
+  "WOWTHESPIRE-CLOAK_OF_THE_DISCIPLE.flavor": "\"...and his music was electric\"",
+  "WOWTHESPIRE-CLOAK_OF_THE_DISCIPLE.title": "Cloak of the Disciple"
 }

@@ -15,8 +15,8 @@ public class PowerWordSpirit() : PriestCard(1, CardType.Power, CardRarity.Rare, 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        foreach (var player in CombatState!.Allies) await PowerCmd.Apply<PowerWordSpiritPower>(new ThrowingPlayerChoiceContext(),
-            player,
+         await PowerCmd.Apply<PowerWordSpiritPower>(new ThrowingPlayerChoiceContext(),
+            Owner.Creature,
             DynamicVars[nameof(PowerWordSpiritPower)].BaseValue,
             Owner.Creature,
             this);

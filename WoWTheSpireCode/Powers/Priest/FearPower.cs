@@ -17,7 +17,7 @@ public class FearPower : BaseDoT {
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
         Creature? dealer, CardModel? cardSource) {
-        if (target == Owner && props != ValueProp.Unpowered && result.UnblockedDamage > 0) await PowerCmd.Decrement(this);
+        if (target == Owner && dealer == Applier && props != ValueProp.Unpowered && result.UnblockedDamage > 0) await PowerCmd.Decrement(this);
     }
 
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {

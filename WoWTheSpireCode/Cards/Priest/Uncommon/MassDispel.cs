@@ -17,10 +17,11 @@ public class MassDispel() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, C
             if (CombatState.Allies.Contains(creature)) {
                 var debuffs = creature.Powers.Where(x => x.Type == PowerType.Debuff).ToList();
                 if (debuffs.Count != 0) await PowerCmd.Remove(debuffs[Owner.RunState.Rng.Niche.NextInt(debuffs.Count)]);
-            } else {
-                var buffs = IsUpgraded ?
-                    creature.Powers.Where(x => x.Amount > 0 && x is StrengthPower or DexterityPower or ArtifactPower).ToList() :
-                    creature.Powers.Where(x => x.Type == PowerType.Buff).ToList();
+            } else
+            {
+                var buffs = IsUpgraded
+                    ? creature.Powers.Where(x => x.Type == PowerType.Buff).ToList()
+                    : creature.Powers.Where(x => x.Amount > 0 && x is StrengthPower or DexterityPower or ArtifactPower).ToList();
                 if (buffs.Count != 0) await PowerCmd.Remove(buffs[Owner.RunState.Rng.Niche.NextInt(buffs.Count)]);
             }
     }

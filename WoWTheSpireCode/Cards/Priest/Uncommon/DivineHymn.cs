@@ -8,7 +8,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 
-public class DivineHymn() : PriestCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self) {
+public class DivineHymn() : PriestCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DivineHymnPower>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     public override bool CanBeGeneratedInCombat => false;

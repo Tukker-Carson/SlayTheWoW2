@@ -7,7 +7,8 @@ namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 public class MindBenderPower : BaseDoT {
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
         if (!participants.Contains(Owner)) return;
-        if (Owner.HasPower<FearPower>()) Owner.GetPower<FearPower>()!.Amount += DynamicVars["Potency"].IntValue;
+        var fear = Owner.Powers.FirstOrDefault(p => p is FearPower && p.Owner == Applier);
+        if (fear is not null) fear.Amount += DynamicVars["Potency"].IntValue;
         await base.AfterSideTurnEnd(choiceContext, side, [Owner]);
     }
 }

@@ -15,7 +15,10 @@ public class ChakraSanctuary() : PriestCard(2, CardType.Power, CardRarity.Uncomm
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<RenewPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.FromKeyword(WoWKeywords.Holy), 
+        HoverTipFactory.FromPower<BlessedPower>()
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         await PowerCmd.Apply<ChakraSanctuaryPower>(new ThrowingPlayerChoiceContext(),

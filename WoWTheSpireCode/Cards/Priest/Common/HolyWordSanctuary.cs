@@ -9,7 +9,7 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
-public class HolyWordSanctuary() : PriestCard(1, CardType.Attack, CardRarity.Common, TargetType.Self) {
+public class HolyWordSanctuary() : PriestCard(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move), new HealVar(3)];
 

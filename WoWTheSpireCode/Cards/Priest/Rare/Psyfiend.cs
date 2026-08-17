@@ -9,8 +9,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 public class Psyfiend() : PriestCard(1, CardType.Power, CardRarity.Rare, TargetType.Self) {
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<PsyfiendPower>(3),
-        new ("BasePowerLevel", 3)
+        new PowerVar<PsyfiendPower>(1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {

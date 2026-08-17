@@ -8,12 +8,12 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Relics;
 
-public class CloakOfDiscipline : WoWTheSpireRelic, IWoWHealListener {
+public class CloakOfTheDisciple : WoWTheSpireRelic, IWoWHealListener {
     public override RelicRarity Rarity => RelicRarity.Starter;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 
     public async Task AfterHeal(Creature target, Creature source, decimal amount, decimal overheal, ValueProp props, CardPlay? cardPlay) {
-        if (source != Owner.Creature || overheal <= 0) return;
-        await CreatureCmd.GainBlock(target, overheal*2, ValueProp.Unpowered, cardPlay);
+        if (source != Owner.Creature) return;
+        await CreatureCmd.GainBlock(target, amount+overheal, ValueProp.Unpowered, cardPlay);
     }
 }

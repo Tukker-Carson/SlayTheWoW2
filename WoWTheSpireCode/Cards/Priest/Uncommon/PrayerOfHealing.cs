@@ -1,5 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -8,8 +8,16 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 
 public class PrayerOfHealing() : PriestCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.AllAllies) {
+    private Decimal HealAmount(Creature target) {
+        var allyCount = CombatState!.Allies.Count(a => a is { IsPlayer: true, IsAlive: true });
+        var energyX = ResolveEnergyXValue();
+        return target == Owner.Creature
+            ? energyX  * DynamicVars.Heal.BaseValue / allyCount
+            : energyX * DynamicVars.Heal.BaseValue / allyCount + energyX * DynamicVars.Heal.BaseValue % allyCount;
+    }
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(5)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override bool HasEnergyCostX => true;
     public override bool CanBeGeneratedInCombat => false;
     
@@ -17,7 +25,8 @@ public class PrayerOfHealing() : PriestCard(-1, CardType.Skill, CardRarity.Uncom
         ArgumentNullException.ThrowIfNull(CombatState);
         var count = ResolveEnergyXValue()*DynamicVars.Heal.BaseValue;
         if (count <= 0) return;
-        foreach (var player in CombatState.Allies) await WoWCmd.Heal(player, Owner.Creature, count/CombatState.Allies.Count, ValueProp.Move, play);
+        foreach (var creature in CombatState.Allies.Where(a => a is {IsPlayer: true, IsAlive: true})) 
+            await WoWCmd.Heal(creature,Owner.Creature, HealAmount(creature),ValueProp.Unpowered, play);
     }
     
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(2);

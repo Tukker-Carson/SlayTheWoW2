@@ -12,6 +12,7 @@ public class PowerWordSpiritPower : WoWTheSpirePower {
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) {
+        if (Owner.Player is null || player != Owner.Player) return;
         var card = await CardPileCmd.Draw(choiceContext, player);
         if (card is not null) {
             if (!card.Keywords.Contains<CardKeyword>(WoWKeywords.Holy)) await CardCmd.Discard(choiceContext, card);
