@@ -16,7 +16,7 @@ public class PrayerOfHealing() : PriestCard(-1, CardType.Skill, CardRarity.Uncom
             : energyX * DynamicVars.Heal.BaseValue / allyCount + energyX * DynamicVars.Heal.BaseValue % allyCount;
     }
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new WoWHealVar(5, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override bool HasEnergyCostX => true;
     public override bool CanBeGeneratedInCombat => false;

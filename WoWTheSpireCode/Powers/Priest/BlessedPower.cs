@@ -13,6 +13,6 @@ public sealed class BlessedPower: WoWTheSpirePower, IWoWHealListener {
     public override bool AllowNegative => true;
 
     public decimal ModifyHealAdditive(Creature target, Creature source, decimal amount, ValueProp props, CardPlay? cardPlay) {
-        return source == Owner ? amount : 0;
+        return source == Owner ? Amount : 0;
     }
 }

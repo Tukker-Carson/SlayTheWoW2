@@ -1,6 +1,4 @@
-﻿using BaseLib.Patches.Features;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -12,12 +10,12 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class LesserHeal() : PriestCard(0, CardType.Skill, CardRarity.Common, TargetType.Self) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new WoWHealVar(4, ValueProp.Move)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowformPower>()];
     public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
     }
 
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(2);

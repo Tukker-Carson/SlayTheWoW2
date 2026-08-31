@@ -12,8 +12,8 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 public class HolyWordSerenity() : PriestCard(1, CardType.Skill, CardRarity.Common, CustomTargetType.Everyone) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new HealVar(3),
-        new DamageVar(6, ValueProp.Unpowered),
+        new WoWHealVar(3, ValueProp.Move),
+        new DamageVar(6, ValueProp.Move),
         new PowerVar<HolyWordSerenityPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {

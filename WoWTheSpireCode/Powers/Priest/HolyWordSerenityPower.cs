@@ -13,12 +13,15 @@ namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 public class HolyWordSerenityPower : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(0), new DamageVar(0, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new WoWHealVar(0, ValueProp.Move),
+        new DamageVar(0, ValueProp.Move)
+    ];
     
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (!participants.Contains(Owner)) return;
         foreach (var creature in CombatState.Creatures)
-            if (creature.Side == Owner.Side) await WoWCmd.Heal(creature, Owner, DynamicVars.Heal.BaseValue, ValueProp.Move, null);
+            if (creature.Side == Owner.Side) await WoWCmd.Heal(creature, Owner, (WoWHealVar)DynamicVars["WoWHeal"], null);
             else await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), creature, DynamicVars.Damage, Owner);
         await PowerCmd.Decrement(this);
     }
@@ -26,7 +29,7 @@ public class HolyWordSerenityPower : WoWTheSpirePower {
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
         if (power != this || cardSource is null) return Task.CompletedTask;
-        DynamicVars.Heal.BaseValue = cardSource.DynamicVars.Heal.BaseValue;
+        DynamicVars["WoWHeal"].BaseValue = cardSource.DynamicVars["WoWHeal"].BaseValue;
         DynamicVars.Damage.BaseValue = cardSource.DynamicVars.Damage.BaseValue;
         return Task.CompletedTask;
     }

@@ -13,14 +13,17 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 
 public class BindingHeal() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(12)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new WoWHealVar(12, ValueProp.Move),
+        new WoWHealVar("SelfHeal", 12, ValueProp.Move, Owner.Creature)
+    ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowformPower>()];
     public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
-        await WoWCmd.Heal(play.Target, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
+        await WoWCmd.Heal(play.Target, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, (WoWHealVar)DynamicVars["SelfHeal"], play);
     }
 
     protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(6);

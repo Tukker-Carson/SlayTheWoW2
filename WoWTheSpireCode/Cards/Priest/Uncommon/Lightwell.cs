@@ -1,5 +1,4 @@
-﻿using BaseLib.Extensions;
-using BaseLib.Patches.Features;
+﻿using BaseLib.Patches.Features;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,14 +11,14 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 public class Lightwell() : PriestCard(0, CardType.Skill, CardRarity.Uncommon, CustomTargetType.Everyone) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(5, ValueProp.Move),
-        new HealVar(5)
+        new WoWHealVar(5, ValueProp.Move)
     ];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy, CardKeyword.Retain];
     public override bool CanBeGeneratedInCombat => false;
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         var target = CombatState?.Creatures.Where(c => c.IsAlive).MinBy(c => c.CurrentHp) ?? Owner.Creature;
-        if (CombatState?.Allies.Contains(target) ?? true) await WoWCmd.Heal(target, Owner.Creature, DynamicVars.Heal.BaseValue, ValueProp.Move, play);
+        if (CombatState?.Allies.Contains(target) ?? true) await WoWCmd.Heal(target, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
         else await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

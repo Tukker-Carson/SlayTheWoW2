@@ -13,7 +13,10 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, CustomTargetType.Anyone) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(3, ValueProp.Move), new RepeatVar(3), new HealVar(2)];
+        new DamageVar(3, ValueProp.Move),
+        new RepeatVar(3), 
+        new WoWHealVar(2, ValueProp.Move)
+    ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowformPower>()];
     public override bool CanBeGeneratedInCombat => false;
 
@@ -26,7 +29,7 @@ public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, Custo
         else { 
             VfxCmd.PlayOnCreature(play.Target,"vfx/vfx_scream");
             for (var i = 0; i < 3; i++) {
-                await WoWCmd.Heal(play.Target, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
+                await WoWCmd.Heal(play.Target, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
             }
         }
     }
