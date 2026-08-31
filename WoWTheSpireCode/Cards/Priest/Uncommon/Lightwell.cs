@@ -24,6 +24,6 @@ public class Lightwell() : PriestCard(0, CardType.Skill, CardRarity.Uncommon, Cu
 
     protected override void OnUpgrade() {
         DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars.Heal.UpgradeValueBy(3);
+        DynamicVars["WoWHeal"].UpgradeValueBy(3);
     }
 }

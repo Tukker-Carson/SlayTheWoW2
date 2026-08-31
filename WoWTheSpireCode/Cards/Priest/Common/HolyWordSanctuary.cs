@@ -11,11 +11,14 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class HolyWordSanctuary() : PriestCard(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move), new HealVar(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new BlockVar(6, ValueProp.Move), 
+        new WoWHealVar(3, ValueProp.Move)
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars.Heal.BaseValue,  ValueProp.Move, play);
+        await WoWCmd.Heal(Owner.Creature, Owner.Creature, DynamicVars["WoWHeal"].BaseValue,  ValueProp.Move, play);
     }
     
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy) {
@@ -33,6 +36,6 @@ public class HolyWordSanctuary() : PriestCard(1, CardType.Skill, CardRarity.Comm
 
     protected override void OnUpgrade() {
         DynamicVars.Block.UpgradeValueBy(3);
-        DynamicVars.Heal.UpgradeValueBy(1);
+        DynamicVars["WoWHeal"].UpgradeValueBy(1);
     }
 }

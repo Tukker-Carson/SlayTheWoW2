@@ -29,5 +29,5 @@ public class PrayerOfHealing() : PriestCard(-1, CardType.Skill, CardRarity.Uncom
             await WoWCmd.Heal(creature,Owner.Creature, HealAmount(creature),ValueProp.Unpowered, play);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(2);
+    protected override void OnUpgrade() => DynamicVars["WoWHeal"].UpgradeValueBy(2);
 }

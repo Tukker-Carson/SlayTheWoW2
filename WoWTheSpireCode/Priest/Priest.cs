@@ -4,6 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Basic;
+using WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 using WoWTheSpire.WoWTheSpireCode.Extensions;
 using WoWTheSpire.WoWTheSpireCode.Relics;
 
@@ -25,12 +26,12 @@ public class Priest : PlaceholderCharacterModel
         ModelDb.Card<PriestStrike>(),
         ModelDb.Card<PriestStrike>(),
         ModelDb.Card<PriestStrike>(),
-        ModelDb.Card<PriestStrike>(),
+        ModelDb.Card<Smite>(),
         ModelDb.Card<PriestDefend>(),
         ModelDb.Card<PriestDefend>(),
         ModelDb.Card<PriestDefend>(),
         ModelDb.Card<PriestDefend>(),
-        ModelDb.Card<PriestDefend>(),
+        ModelDb.Card<HolyWordSanctuary>(),
         ModelDb.Card<Shadowform>()
     ];
 

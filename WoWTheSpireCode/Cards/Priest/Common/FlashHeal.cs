@@ -20,5 +20,5 @@ public class FlashHeal() : PriestCard(1, CardType.Skill, CardRarity.Common, Targ
         await WoWCmd.Heal(Owner.Creature, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
     }
 
-    protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(3);
+    protected override void OnUpgrade() => DynamicVars["WoWHeal"].UpgradeValueBy(3);
 }

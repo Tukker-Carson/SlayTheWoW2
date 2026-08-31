@@ -22,5 +22,5 @@ public class GreaterHeal() : PriestCard(1, CardType.Skill, CardRarity.Uncommon, 
         await WoWCmd.Heal(play.Target, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
     }
 
-    protected override void OnUpgrade() => DynamicVars.Heal.UpgradeValueBy(3);
+    protected override void OnUpgrade() => DynamicVars["WoWHeal"].UpgradeValueBy(3);
 }

@@ -27,7 +27,7 @@
   "WOWTHESPIRE-SHADOW_WORD_PAIN.title": "Shadow Word: Pain",
   "WOWTHESPIRE-VAMPIRIC_TOUCH.description": "Put a [gold]DoT[/gold] on the target, dealing {Potency:diff()} damage and giving you {energyPrefix:energyIcons(1)} at the beginning of your turn for {VampiricTouchPower:diff()} turns.",
   "WOWTHESPIRE-VAMPIRIC_TOUCH.title": "Vampiric Touch",
-  "WOWTHESPIRE-BINDING_HEAL.description": "Target enemy heals {WoWHeal:diff()} HP.\\nHeal {SelfHeal:diff()} HP.",
+  "WOWTHESPIRE-BINDING_HEAL.description": "Target enemy heals {WoWHeal:diff()} HP.\\nHeal {WoWHeal:diff()} HP.",
   "WOWTHESPIRE-BINDING_HEAL.title": "Binding Heal",
   "WOWTHESPIRE-DEVOURING_PLAGUE.description": "Spend your [gold]Shadow Orbs[/gold] to put a [gold]DoT[/gold] on the target, dealing {Potency:diff()} damage per [gold]Shadow Orb[/gold] spent, every turn for {DevouringPlaguePower:diff()} turns.\\nYou heal for 25% of damage dealt by Devouring Plague.",
   "WOWTHESPIRE-DEVOURING_PLAGUE.title": "Devouring Plague",
