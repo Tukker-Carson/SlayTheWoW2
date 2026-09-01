@@ -11,6 +11,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 public class Confession() : PriestCard(0, CardType.Skill, CardRarity.Rare, TargetType.AllAllies) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ArtifactPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ArtifactPower>()];
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         var selected = (await CardSelectCmd.FromSimpleGrid(

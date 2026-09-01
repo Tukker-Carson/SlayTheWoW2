@@ -5,14 +5,14 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-public class PsyfiendPower() : WoWTheSpirePower {
+public class PsyfiendPower : WoWTheSpirePower {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (!participants.Contains(Owner)) return Task.CompletedTask;
         var target = CombatState.Enemies.Where(e => !e.IsDead && e.HasPower<FearPower>())
-            .MaxBy(e => e.GetPower<FearPower>()!.GetDynamicVar("Potency"));
+            .MaxBy(e => e.GetPower<FearPower>()!.GetDynamicVar("Potency").BaseValue);
         if (target is not null) target.GetPower<FearPower>()!.Amount *= Amount+1;
         return Task.CompletedTask;
     }

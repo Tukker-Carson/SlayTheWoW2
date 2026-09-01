@@ -13,7 +13,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 public class Penance() : PriestCard(1, CardType.Attack, CardRarity.Common, CustomTargetType.Anyone) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Holy];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(3, ValueProp.Move),
+        new DamageVar(4, ValueProp.Move),
         new RepeatVar(3), 
         new WoWHealVar(2, ValueProp.Move)
     ];
