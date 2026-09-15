@@ -14,18 +14,15 @@ public class WoWHooks {
         }
     }
     
-    
     public static Decimal ModifyHealAdditive(Creature target, Creature source, Decimal amount, ValueProp props,
         CardPlay? cardPlay) => Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()
             .Aggregate(amount, (current, model) => 
                 current + model.ModifyHealAdditive(target, source, amount, props, cardPlay));
     
-    
     public static Decimal ModifyHealMultiplicative(Creature target, Creature source, Decimal amount, ValueProp props,
         CardPlay? cardPlay) => Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()
             .Aggregate(amount, (current, model) => 
                 current * model.ModifyHealMultiplicative(target, source, amount, props, cardPlay));
-    
     
     public static async Task AfterHealCalculated(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()) {
@@ -34,10 +31,39 @@ public class WoWHooks {
         }
     }
     
-    
     public static async Task AfterHeal(Creature target, Creature source, Decimal amount, Decimal overheal, ValueProp props, CardPlay? cardPlay) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()) {
             await model.AfterHeal(target, source, amount, overheal, props, cardPlay);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    
+    public static async Task BeforeDotTick(Creature target, Creature source, Decimal amount) {
+        foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()) {
+            await model.BeforeDotTick(target, source, amount);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    public static Decimal ModifyDotTickAdditive(Creature target, Creature source, Decimal amount) => Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()
+            .Aggregate(amount, (current, model) => 
+                current + model.ModifyDotTickAdditive(target, source, amount));
+    
+    public static Decimal ModifyDotTickMultiplicative(Creature target, Creature source, Decimal amount) => Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()
+            .Aggregate(amount, (current, model) => 
+                current * model.ModifyDotTickMultiplicative(target, source, amount));
+    
+    public static async Task AfterDotTickCalculated(Creature target, Creature source, Decimal amount) {
+        foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()) {
+            await model.AfterDotTickCalculated(target, source, amount);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    public static async Task AfterDotTick(Creature target, Creature source, Decimal amount) {
+        foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()) {
+            await model.AfterDotTick(target, source, amount);
             ((AbstractModel)model).InvokeExecutionFinished();
         }
     }

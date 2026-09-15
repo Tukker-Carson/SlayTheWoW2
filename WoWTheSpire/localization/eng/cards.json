@@ -155,5 +155,7 @@
   "WOWTHESPIRE-HALO.title": "Halo",
   "WOWTHESPIRE-CONFESSION.description": "Choose a card in an Ally's hand and play a copy with a random target.",
   "WOWTHESPIRE-CONFESSION.title": "Confession",
-  "WOWTHESPIRE-CONFESSION.selectionScreenPrompt": "Choose a card to play."
+  "WOWTHESPIRE-CONFESSION.selectionScreenPrompt": "Choose a card to play.",
+  "WOWTHESPIRE-INNER_FIRE.description": "Apply your current [gold]Renew[/gold] as a [gold]DoT[/gold] on ALL enemies.",
+  "WOWTHESPIRE-INNER_FIRE.title": "Inner Fire"
 }

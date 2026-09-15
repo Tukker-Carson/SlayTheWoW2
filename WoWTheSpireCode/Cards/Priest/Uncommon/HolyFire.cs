@@ -12,7 +12,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 public class HolyFire() : PriestCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new PowerVar<HolyFirePower>(2), 
-        new IntVar("Potency", 6),
+        new IntVar("Potency", 10),
         new DamageVar(2, ValueProp.Move)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HolyFirePower>()];

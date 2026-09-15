@@ -1,11 +1,13 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 public class WoWCmd {
+    // Heal
     public static Decimal ResolveHealAmount(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) {
         amount = Math.Max(WoWHooks.ModifyHealAdditive(target, source, amount, props, cardPlay), 0M);
         // MainFile.Logger.Info("Additive calculated: " + amount);
@@ -25,5 +27,22 @@ public class WoWCmd {
 
     public static Task<Decimal> Heal(Creature target, Creature source, WoWHealVar healVar, CardPlay? cardPlay) {
         return Heal(target, source, healVar.BaseValue, healVar.Props, cardPlay);
+    }
+    
+    
+    // DoT Tick
+    public static Decimal ResolveDotTickAmount(Creature target, Creature source, Decimal amount) {
+        amount = Math.Max(WoWHooks.ModifyDotTickAdditive(target, source, amount), 0M);
+        return WoWHooks.ModifyDotTickMultiplicative(target, source, amount);
+    }
+    
+    public static async Task<IEnumerable<DamageResult>> DotTick(PlayerChoiceContext choiceContext, Creature target, Creature source, Decimal amount) {
+        await WoWHooks.BeforeDotTick(target, source, amount);
+        var modifiedAmount = ResolveDotTickAmount(target, source, amount);
+        await WoWHooks.AfterDotTickCalculated(target, source, modifiedAmount);
+        var damage = await CreatureCmd.Damage(choiceContext, target, modifiedAmount, ValueProp.Unpowered, null, null);
+        // MainFile.Logger.Info("Heal calculated: " + modifiedAmount);
+        await WoWHooks.AfterDotTick(target, source, modifiedAmount);
+        return damage;
     }
 }

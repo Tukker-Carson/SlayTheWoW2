@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using System.Buffers;
+using BaseLib.Hooks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -8,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Platform;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers;
@@ -23,15 +26,22 @@ public abstract class BaseDoT : WoWTheSpirePower {
         new IntVar("Potency", 0)
     ];
 
+    public void SetPotency(int potency) {
+        AssertMutable();
+        DynamicVars["Potency"].BaseValue = potency;
+    }
+
+    public void UpdatePotency(Creature source, Decimal potency) {
+        AssertMutable();
+        Applier = source;
+        DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue, potency);
+        DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
+        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() && Applier.HasPower<ShadowyApparitionPower>()?
+            Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
+    }
+    
     protected Task<IEnumerable<DamageResult>> Tick(PlayerChoiceContext choiceContext) {
-        return CreatureCmd.Damage(
-            choiceContext,
-            Owner, 
-            DynamicVars.Damage.BaseValue, 
-            ValueProp.Unpowered, 
-            Owner, 
-            null,
-            null);
+        return WoWCmd.DotTick(choiceContext, Owner, Applier!, DynamicVars["Potency"].BaseValue);
     }
     
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
@@ -43,18 +53,15 @@ public abstract class BaseDoT : WoWTheSpirePower {
     public override Task AfterApplied(Creature? applier, CardModel? cardSource) {
         ((StringVar)DynamicVars["Applier"]).StringValue = Applier!.Player!.NetId == 1 ? "You" : PlatformUtil.GetPlayerName(RunManager.Instance.NetService.Platform, Applier!.Player!.NetId);
         ((BoolVar)DynamicVars["ApplierIsYou"]).BaseValue = Applier!.Player!.NetId == 1 ? 1 : 0;
+        
         return Task.CompletedTask;
     }
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
-        if (power != this && power is not ShadowyApparitionPower && power is not ShadowformPower || cardSource == null) return;
-
-        if (power == this) {
-            DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue, cardSource.DynamicVars["Potency"].BaseValue);
-            DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
-            await PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
-        }
+        if (power != this && power is not ShadowyApparitionPower && power is not ShadowformPower) return;
+        await PowerCmd.ModifyAmount(choiceContext, this, -Math.Min(amount, Amount-amount), null, null);
+        if (cardSource is not null && power == this) UpdatePotency(cardSource.Owner.Creature, cardSource.DynamicVars["Potency"].BaseValue);
         DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() && Applier.HasPower<ShadowyApparitionPower>()?
             Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
     }

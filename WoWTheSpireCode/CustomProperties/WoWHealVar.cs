@@ -8,13 +8,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 public class WoWHealVar : DynamicVar {
-      public const string defaultName = "WoWHeal";
+      public const string DefaultName = "WoWHeal";
 
       public ValueProp Props { get; set; }
       public Creature? Target { get; set; }
 
       
-      public WoWHealVar(Decimal heal, ValueProp props) : base(defaultName, heal) { 
+      public WoWHealVar(Decimal heal, ValueProp props) : base(DefaultName, heal) { 
           Props = props;
           Target = null;
       }
@@ -24,7 +24,7 @@ public class WoWHealVar : DynamicVar {
           Target = null;
       }
 
-      public WoWHealVar(Decimal heal, ValueProp props, Creature? target) : base(defaultName, heal) {
+      public WoWHealVar(Decimal heal, ValueProp props, Creature? target) : base(DefaultName, heal) {
           Props = props;
           Target = target;
       }
