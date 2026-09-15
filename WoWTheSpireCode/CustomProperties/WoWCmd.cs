@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 public class WoWCmd {
-    // Heal
+    // -----Heal-----
     public static Decimal ResolveHealAmount(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) {
         amount = Math.Max(WoWHooks.ModifyHealAdditive(target, source, amount, props, cardPlay), 0M);
         // MainFile.Logger.Info("Additive calculated: " + amount);
@@ -30,7 +30,7 @@ public class WoWCmd {
     }
     
     
-    // DoT Tick
+    // -----DoT Tick-----
     public static Decimal ResolveDotTickAmount(Creature target, Creature source, Decimal amount) {
         amount = Math.Max(WoWHooks.ModifyDotTickAdditive(target, source, amount), 0M);
         return WoWHooks.ModifyDotTickMultiplicative(target, source, amount);
@@ -38,10 +38,13 @@ public class WoWCmd {
     
     public static async Task<IEnumerable<DamageResult>> DotTick(PlayerChoiceContext choiceContext, Creature target, Creature source, Decimal amount) {
         await WoWHooks.BeforeDotTick(target, source, amount);
+        MainFile.Logger.Info("Before Calculate");
         var modifiedAmount = ResolveDotTickAmount(target, source, amount);
+        MainFile.Logger.Info("Dot Tick calculated: " + modifiedAmount);
         await WoWHooks.AfterDotTickCalculated(target, source, modifiedAmount);
+        MainFile.Logger.Info("Before Damage");
         var damage = await CreatureCmd.Damage(choiceContext, target, modifiedAmount, ValueProp.Unpowered, null, null);
-        // MainFile.Logger.Info("Heal calculated: " + modifiedAmount);
+        MainFile.Logger.Info("After Damage");
         await WoWHooks.AfterDotTick(target, source, modifiedAmount);
         return damage;
     }
