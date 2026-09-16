@@ -63,9 +63,10 @@ public abstract class BaseDoT : WoWTheSpirePower
         CardModel? cardSource) {
         if (power != this && power is not ShadowyApparitionPower && power is not ShadowformPower) return;
         Amount = (int)Math.Max(amount, Amount - amount);
-        if (cardSource is not null && power == this) UpdatePotency(cardSource.Owner.Creature, cardSource.DynamicVars["Potency"].BaseValue);
-        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() && Applier.HasPower<ShadowyApparitionPower>()?
-            Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
+        if (cardSource is not null && power == this && cardSource.DynamicVars.Values.Any(i => i.Name == "Potency"))
+            UpdatePotency(cardSource.Owner.Creature, cardSource.DynamicVars["Potency"].BaseValue);
+        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() 
+            && Applier.HasPower<ShadowyApparitionPower>()?Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
     }
     
     public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context) {

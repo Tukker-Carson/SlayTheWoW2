@@ -124,5 +124,8 @@
   "WOWTHESPIRE-POWER_INFUSION_POWER.title": "Power Infusion",
   "WOWTHESPIRE-DIVINE_INSIGHT_POWER.description": "At the beginning of the player's next turn, if this creature intends to attack, it gains [Gold]fear[/gold].",
   "WOWTHESPIRE-DIVINE_INSIGHT_POWER.smartDescription": "At the beginning of the player's next turn, if this creature intends to attack, it gains [blue]{Amount}[/blue] [Gold]fear[/gold] ([blue]{Potency:diff()}[/blue]).",
-  "WOWTHESPIRE-DIVINE_INSIGHT_POWER.title": "Divine Insight"
+  "WOWTHESPIRE-DIVINE_INSIGHT_POWER.title": "Divine Insight",
+  "WOWTHESPIRE-INNER_FIRE_POWER.description": "[gold]DoT[/gold]. [gold]Inner Fire[/gold] deals damage at the end of the creature's turn.",
+  "WOWTHESPIRE-INNER_FIRE_POWER.smartDescription": "[gold]DoT[/gold]. Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn.",
+  "WOWTHESPIRE-INNER_FIRE_POWER.title": "Inner Fire"
 }
