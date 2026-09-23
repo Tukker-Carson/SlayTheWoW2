@@ -157,5 +157,9 @@
   "WOWTHESPIRE-CONFESSION.title": "Confession",
   "WOWTHESPIRE-CONFESSION.selectionScreenPrompt": "Choose a card to play.",
   "WOWTHESPIRE-INNER_FIRE.description": "Apply your current [gold]Renew[/gold] as a [gold]DoT[/gold] on ALL enemies.",
-  "WOWTHESPIRE-INNER_FIRE.title": "Inner Fire"
+  "WOWTHESPIRE-INNER_FIRE.title": "Inner Fire",
+  "WOWTHESPIRE-INNER_WILL.description": "Lose {BlessedPower:diff()} [gold]Blessed[/gold].\\nIncrease the Potency of [gold]DoTs[/gold] on an enemy by {Potency:diff()}.",
+  "WOWTHESPIRE-INNER_WILL.title": "Inner Will",
+  "WOWTHESPIRE-INNER_SANCTUM.description": "Lose {BlessedPower:diff()} [gold]Blessed[/gold].\\nGain {Block:diff()} [gold]Block[/gold].",
+  "WOWTHESPIRE-INNER_SANCTUM.title": "Inner Sanctum"
 }
