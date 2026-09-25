@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
-
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 
 public class InnerSanctum() : PriestCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self) {

@@ -15,8 +15,7 @@ using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers;
 
-public abstract class BaseDoT : WoWTheSpirePower
-{
+public abstract class BaseDoT : WoWTheSpirePower {
     public Color ForecastColor = new ("#78104C");
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
