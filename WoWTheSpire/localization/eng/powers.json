@@ -127,5 +127,8 @@
   "WOWTHESPIRE-DIVINE_INSIGHT_POWER.title": "Divine Insight",
   "WOWTHESPIRE-INNER_FIRE_POWER.description": "[gold]DoT[/gold]. [gold]Inner Fire[/gold] deals damage at the end of the creature's turn.",
   "WOWTHESPIRE-INNER_FIRE_POWER.smartDescription": "[gold]DoT[/gold]. Takes [blue]{Damage:diff()}[/blue] damage at the end of their turn.",
-  "WOWTHESPIRE-INNER_FIRE_POWER.title": "Inner Fire"
+  "WOWTHESPIRE-INNER_FIRE_POWER.title": "Inner Fire",
+  "WOWTHESPIRE-SHACKLE_UNDEAD_POWER.description": "[gold]DoTs[/gold] deal double damage.",
+  "WOWTHESPIRE-SHACKLE_UNDEAD_POWER.smartDescription": "[gold]DoTs[/gold] deal double damage for the next {Amount:plural:turn| [blue]{Amount}[/blue] turns.",
+  "WOWTHESPIRE-SHACKLE_UNDEAD_POWER.title": "Shackle Undead"
 }

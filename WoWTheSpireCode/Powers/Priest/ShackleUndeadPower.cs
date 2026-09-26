@@ -4,10 +4,10 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-public class ShadowyApparitionPower : WoWTheSpirePower, IWoWDotTickListener {
+public class ShackleUndeadPower : WoWTheSpirePower, IWoWDotTickListener {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public decimal ModifyDotTickAdditive(Creature target, Creature source, decimal amount) =>
-        source == Owner ? Amount : 0;
+    public decimal ModifyDotTickMultiplicative(Creature target, Creature source, decimal amount) =>
+        target == Owner ? 2 : 1;
 }

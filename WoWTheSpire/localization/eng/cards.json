@@ -162,6 +162,8 @@
   "WOWTHESPIRE-INNER_WILL.title": "Inner Will",
   "WOWTHESPIRE-INNER_SANCTUM.description": "Lose {BlessedPower:diff()} [gold]Blessed[/gold].\\nGain {Block:diff()} [gold]Block[/gold].",
   "WOWTHESPIRE-INNER_SANCTUM.title": "Inner Sanctum",
-  "WOWTHESPIRE-LEAP_OF_FAITH.description": "Lose {MaxHpLoss:diff()} max HP.\nHeal ALL allies {WoWHeal:diff()} HP.",
-  "WOWTHESPIRE-LEAP_OF_FAITH.title": "Leap Of Faith"
+  "WOWTHESPIRE-LEAP_OF_FAITH.description": "Lose {MaxHpLoss:diff()} max HP.\\nHeal ALL allies {WoWHeal:diff()} HP.",
+  "WOWTHESPIRE-LEAP_OF_FAITH.title": "Leap Of Faith",
+  "WOWTHESPIRE-SHACKLE_UNDEAD.description": "Deal 20 Damage.\\nTarget enemy's DoTs tick for double damage this turn.",
+  "WOWTHESPIRE-SHACKLE_UNDEAD.title": "Shackle Undead"
 }
