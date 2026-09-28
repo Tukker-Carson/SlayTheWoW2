@@ -37,8 +37,7 @@ public abstract class BaseDoT : WoWTheSpirePower {
         Applier = source;
         DynamicVars.Damage.BaseValue = Math.Max(DynamicVars["Potency"].BaseValue, potency);
         DynamicVars["Potency"].BaseValue = DynamicVars.Damage.BaseValue;
-        DynamicVars.Damage.BaseValue = DynamicVars["Potency"].BaseValue + (Applier is not null && Applier.HasPower<ShadowformPower>() && Applier.HasPower<ShadowyApparitionPower>()?
-            Applier!.GetPowerAmount<ShadowyApparitionPower>():0);
+        DynamicVars.Damage.BaseValue = WoWCmd.ResolveDotTickAmount(Owner, Applier!, DynamicVars["Potency"].BaseValue);
     }
     
     protected Task<IEnumerable<DamageResult>> Tick(PlayerChoiceContext choiceContext) {
@@ -60,7 +59,7 @@ public abstract class BaseDoT : WoWTheSpirePower {
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource) {
-        if (power != this && power is not ShadowyApparitionPower && power is not ShadowformPower) return;
+        if (power != this && power is not IWoWDotTickListener) return;
         Amount = (int)Math.Max(amount, Amount - amount);
         if (cardSource is not null && power == this && cardSource.DynamicVars.Values.Any(i => i.Name == "Potency"))
             UpdatePotency(cardSource.Owner.Creature, cardSource.DynamicVars["Potency"].BaseValue);

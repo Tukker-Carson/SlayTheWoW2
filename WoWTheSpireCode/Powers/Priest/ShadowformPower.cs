@@ -9,8 +9,7 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 namespace WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
-public class ShadowformPower() : WoWTheSpirePower
-{
+public class ShadowformPower() : WoWTheSpirePower, IWoWDotTickListener {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
