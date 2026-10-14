@@ -60,6 +60,7 @@ public class Priest : CustomCharacterModel
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "priest_icon.png".CharacterUiPath();
     public override string CustomVisualPath => SceneHelper.GetScenePath("creature_visuals/" + CharId);
+    // public override string CustomVisualPath => "res://WoWTheSpire/images/characters/priest/priest.tscn";
     public override string CustomTrailPath => SceneHelper.GetScenePath("vfx/card_trail_" + CharId);
     public override string CustomIconPath => SceneHelper.GetScenePath($"ui/character_icons/{CharId}_icon");
     public override string? CustomIconOutlineTexturePath => ImageHelper.GetImagePath($"ui/top_panel/character_icon_{CharId}_outline.png");

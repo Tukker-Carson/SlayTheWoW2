@@ -164,6 +164,8 @@
   "WOWTHESPIRE-INNER_SANCTUM.title": "Inner Sanctum",
   "WOWTHESPIRE-LEAP_OF_FAITH.description": "Lose {MaxHpLoss:diff()} max HP.\\nHeal ALL allies {WoWHeal:diff()} HP.",
   "WOWTHESPIRE-LEAP_OF_FAITH.title": "Leap Of Faith",
-  "WOWTHESPIRE-SHACKLE_UNDEAD.description": "Deal 20 Damage.\\nTarget enemy's DoTs tick for double damage this turn.",
-  "WOWTHESPIRE-SHACKLE_UNDEAD.title": "Shackle Undead"
+  "WOWTHESPIRE-SHACKLE_UNDEAD.description": "Deal 20 Damage.\\nTarget enemy's [gold]DoTs[/gold] tick for double damage this turn.",
+  "WOWTHESPIRE-SHACKLE_UNDEAD.title": "Shackle Undead",
+  "WOWTHESPIRE-STOLEN_TIME.description": "Gain 1 energy and draw 1 card for each of your DoTs on the target.",
+  "WOWTHESPIRE-STOLEN_TIME.title": "Stolen Time"
 }
