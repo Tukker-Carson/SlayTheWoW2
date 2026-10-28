@@ -15,7 +15,8 @@ public class PrayerOfMending() : PriestCard(1, CardType.Skill, CardRarity.Uncomm
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrayerOfMendingPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PrayerOfMendingPower>()];
     public override bool CanBeGeneratedInCombat => false;
-    
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         await PowerCmd.Apply<PrayerOfMendingPower>(new ThrowingPlayerChoiceContext(),
             Owner.Creature,

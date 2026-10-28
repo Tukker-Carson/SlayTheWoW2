@@ -24,5 +24,7 @@ public class ShadowWordPain() : PriestCard(1, CardType.Attack, CardRarity.Common
             this);
     }
     
+    
+    
     protected override void OnUpgrade() => DynamicVars.Power<ShadowWordPainPower>().UpgradeValueBy(1);
 }
