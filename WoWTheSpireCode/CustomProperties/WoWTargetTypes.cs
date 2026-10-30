@@ -8,6 +8,7 @@ namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 public static class WoWTargetTypes {
      [CustomEnum] public static TargetType Any25PHpEnemies;
+     [CustomEnum] public static TargetType DyingAllies;
 }
 
 [HarmonyPatch(typeof(ModelDb), "Init")]
@@ -19,5 +20,7 @@ internal static class ModelDbTargetTypeInitPatch {
                target => target is { IsAlive: true, IsEnemy: true}  && target.CurrentHp <= target.MaxHp/4);
           // CustomTargetType.RegisterMultiTargetType(WoWTargetTypes.AllLowHpEnemies,
           //      target => target is { IsAlive: true, IsEnemy: true}  && target.CurrentHp <= target.MaxHp/2);
+          CustomTargetType.RegisterSingleTargetType(WoWTargetTypes.DyingAllies,
+               target => target is { IsDead: true, IsPlayer: true});
      }
 }
