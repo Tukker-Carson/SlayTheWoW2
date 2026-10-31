@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Models;
@@ -7,6 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
 
 public class WoWHooks {
+    // Heal
     public static async Task BeforeHeal(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWHealListener>()) {
             await model.BeforeHeal(target, source, amount, props, cardPlay);
@@ -39,6 +41,7 @@ public class WoWHooks {
     }
     
     
+    // Dot Tick
     public static async Task BeforeDotTick(Creature target, Creature source, Decimal amount) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()) {
             await model.BeforeDotTick(target, source, amount);
@@ -64,6 +67,36 @@ public class WoWHooks {
     public static async Task AfterDotTick(Creature target, Creature source, Decimal amount) {
         foreach (var model in Hook.IterateCombatHookListeners(source.CombatState!).OfType<IWoWDotTickListener>()) {
             await model.AfterDotTick(target, source, amount);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    
+    // Desecrate
+    public static async Task BeforeDesecrate(CardModel card, ICombatState combatState) {
+        foreach (var model in Hook.IterateCombatHookListeners(combatState).OfType<IDesecrateSanctifyListener>()) {
+            await model.BeforeDesecrate(card);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    public static async Task AfterDesecrate(CardModel card, ICombatState combatState) {
+        foreach (var model in Hook.IterateCombatHookListeners(combatState).OfType<IDesecrateSanctifyListener>()) {
+            await model.AfterDesecrate(card);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    public static async Task BeforeSanctify(CardModel card, ICombatState combatState) {
+        foreach (var model in Hook.IterateCombatHookListeners(combatState).OfType<IDesecrateSanctifyListener>()) {
+            await model.BeforeSanctify(card);
+            ((AbstractModel)model).InvokeExecutionFinished();
+        }
+    }
+    
+    public static async Task AfterSanctify(CardModel card, ICombatState combatState) {
+        foreach (var model in Hook.IterateCombatHookListeners(combatState).OfType<IDesecrateSanctifyListener>()) {
+            await model.AfterSanctify(card);
             ((AbstractModel)model).InvokeExecutionFinished();
         }
     }

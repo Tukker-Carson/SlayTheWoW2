@@ -1,7 +1,9 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
@@ -47,5 +49,22 @@ public class WoWCmd {
         MainFile.Logger.Info("After Damage");
         await WoWHooks.AfterDotTick(target, source, modifiedAmount);
         return damage;
+    }
+    
+    
+    // -----Desecrate/Sanctify-----
+    public static async Task Desecrate(CardModel card, ICombatState combatState) {
+        await WoWHooks.BeforeDesecrate(card, combatState);
+        card.RemoveKeyword(WoWKeywords.Holy);
+        card.AddKeyword(WoWKeywords.Desecrated);
+        
+        await WoWHooks.AfterDesecrate(card, combatState);
+    }
+    
+    public static async Task Sanctify(CardModel card, ICombatState combatState) {
+        await WoWHooks.BeforeDesecrate(card, combatState);
+        card.RemoveKeyword(WoWKeywords.Desecrated);
+        card.AddKeyword(WoWKeywords.Holy);
+        await WoWHooks.AfterDesecrate(card, combatState);
     }
 }
