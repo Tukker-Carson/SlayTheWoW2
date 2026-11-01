@@ -12,8 +12,10 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class MindBlast() : PriestCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(22, ValueProp.Move), new PowerVar<ShadowOrbPower>(1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowOrbPower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WoWKeywords.Desecrated];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.Static(WoWKeywords.Desecrate), 
+        HoverTipFactory.FromKeyword(WoWKeywords.Holy)
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
@@ -26,7 +28,7 @@ public class MindBlast() : PriestCard(2, CardType.Attack, CardRarity.Common, Tar
             Owner,
             new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
         if (card is null || CombatState is null) return;
-        await WoWCmd.Desecrate(card, CombatState);
+        await WoWCmd.Desecrate(choiceContext, card, CombatState);
         CardCmd.Preview(card);
     }
     

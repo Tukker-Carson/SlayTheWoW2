@@ -4,6 +4,7 @@ using BaseLib.Patches.Localization;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
 namespace WoWTheSpire.WoWTheSpireCode.CustomProperties;
@@ -22,12 +23,12 @@ public class WoWKeywords {
     private static MethodInfo GetTextMethod => AccessTools.DeclaredMethod("CardKeywordExtensions:GetCardText");
 
     private static void DescriptionOverrides_CustomizeDescriptionPost(CardModel card, Creature? target, ref string description) {
-        foreach (CardKeyword keyword in card.Keywords.Where(keyword => IsPurpleKeyword(keyword, card))) {
+        foreach (CardKeyword keyword in card.Keywords.Where(k => k == Desecrated)) {
             string original = (string?)GetTextMethod.Invoke(null, [keyword]) ?? string.Empty;
             string newValue = original.Replace("gold]", "purple]");
             description = description.Replace(original, newValue);
         }
     }
 
-    private static bool IsPurpleKeyword(CardKeyword keyword, CardModel card) => keyword == Desecrated;
+    [CustomEnum] public static StaticHoverTip Desecrate;
 }

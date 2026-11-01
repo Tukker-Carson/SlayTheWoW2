@@ -38,6 +38,6 @@ public class WoWHealVar : DynamicVar {
       public override void UpdateCardPreview(CardModel card, CardPreviewMode previewMode, Creature? target, bool runGlobalHooks) {
           // Doesn't take enchantments into consideration
           if (runGlobalHooks) 
-              PreviewValue = WoWCmd.ResolveHealAmount(Target ?? target ?? card.Owner.Creature, card.Owner.Creature, BaseValue, Props, null);
+              PreviewValue = WoWCmd.ResolveHealAmount(Target ?? target ?? card.Owner.Creature, card.Owner.Creature, BaseValue, Props, null, card);
       }
 }
