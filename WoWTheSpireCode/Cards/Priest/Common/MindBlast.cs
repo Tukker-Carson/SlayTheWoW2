@@ -20,16 +20,7 @@ public class MindBlast() : PriestCard(2, CardType.Attack, CardRarity.Common, Tar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        var holyCards = PileType.Draw.GetPile(Owner).Cards.Where(card => card.Keywords.Contains(WoWKeywords.Holy)).ToList();
-        if (holyCards.Count == 0) return;
-        var card = (await CardSelectCmd.FromSimpleGrid(
-            choiceContext,
-            holyCards,
-            Owner,
-            new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
-        if (card is null || CombatState is null) return;
-        await WoWCmd.Desecrate(choiceContext, card, CombatState);
-        CardCmd.Preview(card);
+        await WoWCmd.Desecrate(choiceContext, this, CombatState!, 2, 1);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(9);

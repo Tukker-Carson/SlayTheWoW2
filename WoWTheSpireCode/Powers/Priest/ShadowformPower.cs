@@ -11,7 +11,7 @@ public class ShadowformPower() : WoWTheSpirePower, IWoWDotTickListener {
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
-        if (cardPlay.Card.CanonicalKeywords.Contains(WoWKeywords.Holy) && cardPlay.Card.Owner.Creature == Owner) {
+        if (cardPlay.Card.Keywords.Contains(WoWKeywords.Holy) && cardPlay.Card.Owner.Creature == Owner) {
             await WoWCmd.Desecrate(choiceContext, cardPlay.Card, CombatState);
             await PowerCmd.Remove(this);
         }
