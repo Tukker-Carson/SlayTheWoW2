@@ -34,7 +34,7 @@
   "WOWTHESPIRE-DEVOURING_PLAGUE.title": "Devouring Plague",
   "WOWTHESPIRE-PRAYER_OF_HEALING.description": "Heal {WoWHeal:diff()}X HP, divided evenly among all players. Excess healing from division is applied to the caster.",
   "WOWTHESPIRE-PRAYER_OF_HEALING.title": "Prayer of Healing",
-  "WOWTHESPIRE-MIND_SEAR.description": "Deal {Damage:diff()}x4 damage to all enemies except the target.\\nIf you are in [gold]Shadow Form[/gold], gain 1 [gold]Shadow Orb[/gold].",
+  "WOWTHESPIRE-MIND_SEAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} {Repeat:plural:time|times} to all enemies except the target.",
   "WOWTHESPIRE-MIND_SEAR.title": "Mind Sear",
   "WOWTHESPIRE-SILENCE.description": "If the target plans to apply a debuff, gain 1 [gold]Artifact[/gold].",
   "WOWTHESPIRE-SILENCE.title": "Silence",
