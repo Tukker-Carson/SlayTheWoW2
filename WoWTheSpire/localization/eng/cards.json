@@ -76,7 +76,7 @@
   "WOWTHESPIRE-FOCUSED_WILL.title": "Focused Will",
   "WOWTHESPIRE-REFLECTIVE_SHIELD.description": "When attacked, deal 25% of blocked damage back to the attacker.",
   "WOWTHESPIRE-REFLECTIVE_SHIELD.title": "Reflective Shield",
-  "WOWTHESPIRE-SHADOWY_APPARITION.description": "When one of your [gold]DoTs[/gold] deals damage, if in [gold]Shadow Form[/gold], deal {ShadowyApparitionPower:diff()} damage.",
+  "WOWTHESPIRE-SHADOWY_APPARITION.description": "Damage you deal with DoTs is affected by Strength. Lose {StrengthPower:diff()} Strength.",
   "WOWTHESPIRE-SHADOWY_APPARITION.title": "Shadowy Apparition",
   "WOWTHESPIRE-MIND_VISION.description": "If the enemy does not intend to attack{IfUpgraded:show:| and you are in [gold]Shadow Form[/gold]}, gain {ShadowOrbPower:diff()} [gold]Shadow Orb[/gold].",
   "WOWTHESPIRE-MIND_VISION.title": "Mind Vision",
@@ -169,6 +169,6 @@
   "WOWTHESPIRE-SHACKLE_UNDEAD.title": "Shackle Undead",
   "WOWTHESPIRE-STOLEN_TIME.description": "Gain 1 energy and draw 1 card for each of your DoTs on the target.",
   "WOWTHESPIRE-STOLEN_TIME.title": "Stolen Time",
-  "WOWTHESPIRE-RESURRECTION.description": "Bring a dead ally back to life with 10 HP. They gain a deck of 15 random cards and Draw 5 cards.",
+  "WOWTHESPIRE-RESURRECTION.description": "If this card is [gold]Holy[/gold], [gold]Sanctify[/gold] every card in your discard.{IfUpgraded:show: Otherwise, [gold]Exhaust[/gold] this card.}",
   "WOWTHESPIRE-RESURRECTION.title": "Resurrection"
 }

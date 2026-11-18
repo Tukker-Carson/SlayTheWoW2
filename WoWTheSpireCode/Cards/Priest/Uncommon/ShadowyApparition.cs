@@ -3,16 +3,19 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 using WoWTheSpire.WoWTheSpireCode.Powers.Priest;
 
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Uncommon;
 
 public class ShadowyApparition() : PriestCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShadowyApparitionPower>(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new PowerVar<ShadowyApparitionPower>(1),
+        new PowerVar<StrengthPower>(2)
+    ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromPower<ShadowformPower>(), 
         HoverTipFactory.FromKeyword(WoWKeywords.DoT)
     ];
 
@@ -22,7 +25,12 @@ public class ShadowyApparition() : PriestCard(1, CardType.Power, CardRarity.Unco
             DynamicVars[nameof(ShadowyApparitionPower)].BaseValue,
             Owner.Creature,
             this);
+        if (IsUpgraded) await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(),
+            Owner.Creature,
+            -DynamicVars[nameof(StrengthPower)].BaseValue,
+            Owner.Creature,
+            this);
     }
-    
-    protected override void OnUpgrade() => DynamicVars[nameof(ShadowyApparitionPower)].UpgradeValueBy(4);
+
+    protected override void OnUpgrade() => DynamicVars[nameof(StrengthPower)].UpgradeValueBy(-2);
 }

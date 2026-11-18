@@ -9,28 +9,13 @@ using WoWTheSpire.WoWTheSpireCode.CustomProperties;
 namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Rare;
 
   
-public class Resurrection() : PriestCard(1, CardType.Skill, CardRarity.Rare, WoWTargetTypes.DyingAllies) {
+public class Resurrection() : PriestCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self) {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, WoWKeywords.Holy];
-    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new("ResHP", 10)
-    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
-        ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
-        var target = play.Target.Player!;
-        await target.ReviveBeforeCombatEnd();
-        CombatManager.Instance.UndoReadyToEndTurn(target);
-        target.Deck.InvokeContentsChanged();
-        await PlayerCmd.GainEnergy(target.MaxEnergy, target);
-        await CreatureCmd.SetCurrentHp(play.Target, 10);
-        var newCards = CardFactory.GetDistinctForCombat(target,
-            target.Character.CardPool.GetUnlockedCards(target.UnlockState, target.RunState.CardMultiplayerConstraint),
-            15, target.RunState.Rng.CombatCardGeneration).ToArray();
-        await CardPileCmd.AddGeneratedCardsToCombat(newCards, PileType.Discard, Owner);
-        await CardPileCmd.Draw(choiceContext, 5, target);
+        await WoWCmd.Sanctify(choiceContext, this, CombatState!, 4, 0);
+        if (IsUpgraded && !CanonicalKeywords.Contains(WoWKeywords.Holy)) await CardCmd.Exhaust(choiceContext, this);
     }
     
-    protected override void OnUpgrade() => AddKeyword(CardKeyword.Retain);
-}
+    protected override void OnUpgrade() => RemoveKeyword(CardKeyword.Exhaust);
+}   

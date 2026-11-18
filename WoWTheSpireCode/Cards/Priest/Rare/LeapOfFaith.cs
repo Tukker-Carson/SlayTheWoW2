@@ -20,7 +20,7 @@ public class LeapOfFaith() : PriestCard(0, CardType.Skill, CardRarity.Rare, Targ
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
         foreach (var ally in CombatState!.Allies)
             await WoWCmd.Heal(ally, Owner.Creature, (WoWHealVar)DynamicVars["WoWHeal"], play);
-        await CreatureCmd.LoseMaxHp(choiceContext, Owner.Creature, DynamicVars["MaxHpLoss"].BaseValue, true);
+        await CreatureCmd.LoseMaxHp(choiceContext, Owner.Creature, DynamicVars["MaxHpLoss"].BaseValue, this);
     }
     
     protected override void OnUpgrade() => DynamicVars["MaxHpLoss"].UpgradeValueBy(-1);

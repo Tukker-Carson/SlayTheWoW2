@@ -12,8 +12,7 @@ namespace WoWTheSpire.WoWTheSpireCode.Cards.Priest.Common;
 
 public class ShadowWordDeath() : PriestCard(0, CardType.Attack, CardRarity.Common, WoWTargetTypes.Any25PHpEnemies) {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(30, ValueProp.Move),
-        new PowerVar<ShadowOrbPower>(1)
+        new DamageVar(30, ValueProp.Move)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShadowOrbPower>()];
 
@@ -24,14 +23,6 @@ public class ShadowWordDeath() : PriestCard(0, CardType.Attack, CardRarity.Commo
         ArgumentNullException.ThrowIfNull(play.Target, "cardPlay.Target");
         
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        
-        if (Owner.Creature.HasPower<ShadowformPower>()) 
-            await PowerCmd.Apply<ShadowOrbPower>(new ThrowingPlayerChoiceContext(),
-                Owner.Creature,
-                DynamicVars[nameof(ShadowOrbPower)].BaseValue,
-                Owner.Creature,
-                this);
-        
         if (play.Target.IsAlive) 
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CreateClone(), PileType.Discard, Owner));
         

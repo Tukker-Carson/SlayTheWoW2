@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -73,6 +74,12 @@ public class WoWCmd {
     
     
     // -----Desecrate/Sanctify-----
+    private static List<CardModel> Select(CardKeyword keyword, Player player, short piles) {
+        return _pileTypes.Where((_, i) => (piles & (1 << i)) != 0)
+            .Aggregate((List<CardModel>)[], (current, t) => current.Concat(t.GetPile(player).Cards)
+                .Where(c => c.Keywords.Contains(keyword)).ToList());
+        
+    }
     public static async Task<CardModel?> Desecrate(PlayerChoiceContext choiceContext, CardModel card, ICombatState combatState) {
         await WoWHooks.BeforeDesecrate(card, combatState);
         card.RemoveKeyword(WoWKeywords.Holy);
@@ -83,19 +90,17 @@ public class WoWCmd {
     }
     
     /// <summary>
-    /// Automatically sets up selection screen for desecrating a card.
+    /// Automatically sets up selection screen for desecrating cards.
     /// </summary>
     /// <param name="choiceContext">Passed to CardSelectCmd and PowerCmd.</param>
     /// <param name="card">Original Card resulting in this command. Used to determine Owner and SelectionScreenPrompt localization.</param>
     /// <param name="combatState">Passed to hooks.</param>
     /// <param name="piles">The least significant bits determine if Discard, Deck, and Hand respectively should be included in Card selection.</param>
     /// <param name="amount">Amount of Cards to desecrate. If not enough options, instead returns null.</param>
-    /// <returns>The desecrated Card (the last if any).</returns>
+    /// <returns>The desecrated Cards or null if not enough eligible Cards.</returns>
     public static async Task<List<CardModel>?> Desecrate(PlayerChoiceContext choiceContext, CardModel card,
         ICombatState combatState, short piles, int amount) {
-        var holyCards = _pileTypes.Where((_, i) => (piles & (1 << i)) != 0)
-            .Aggregate((List<CardModel>)[], (current, t) => current.Concat(t.GetPile(card.Owner).Cards)
-                .Where(c => c.Keywords.Contains(WoWKeywords.Holy)).ToList());
+        var holyCards = Select(WoWKeywords.Holy, card.Owner, piles);
         if (holyCards.Count < amount) return null;
         if (holyCards.Count > amount) holyCards = (await CardSelectCmd.FromSimpleGrid(choiceContext, holyCards, card.Owner,
             new CardSelectorPrefs(card.SelectionScreenPrompt, amount))).ToList();
@@ -104,10 +109,32 @@ public class WoWCmd {
         return holyCards;
     }
     
-    public static async Task Sanctify(CardModel card, ICombatState combatState) {
-        await WoWHooks.BeforeDesecrate(card, combatState);
+    public static async Task<CardModel?> Sanctify(CardModel card, ICombatState combatState) {
+        await WoWHooks.BeforeSanctify(card, combatState);
         card.RemoveKeyword(WoWKeywords.Desecrated);
         card.AddKeyword(WoWKeywords.Holy);
-        await WoWHooks.AfterDesecrate(card, combatState);
+        await WoWHooks.AfterSanctify(card, combatState);
+        return card;
+    }
+    
+    /// <summary>
+    /// Automatically sets up selection screen for sanctifying cards.
+    /// </summary>
+    /// <param name="choiceContext">Passed to CardSelectCmd.</param>
+    /// <param name="card">Original Card resulting in this command. Used to determine Owner and SelectionScreenPrompt localization.</param>
+    /// <param name="combatState">Passed to hooks.</param>
+    /// <param name="piles">The least significant bits determine if Discard, Deck, and Hand respectively should be included in Card selection.</param>
+    /// <param name="amount">Amount of Cards to desecrate. 0 for ALL.</param>
+    /// <returns>The sanctified Cards or null if not enough eligible Cards.</returns>
+    public static async Task<List<CardModel>?> Sanctify(PlayerChoiceContext choiceContext, CardModel card,
+        ICombatState combatState, short piles, int amount) {
+        var holyCards = Select(WoWKeywords.Desecrated, card.Owner, piles).ToList();
+        if (amount == 0) amount = holyCards.Count;
+        if (holyCards.Count < amount) return null;
+        if (holyCards.Count > amount) holyCards = (await CardSelectCmd.FromSimpleGrid(choiceContext, holyCards, card.Owner,
+            new CardSelectorPrefs(card.SelectionScreenPrompt, amount))).ToList();
+        foreach (var c in holyCards) await Sanctify(c, combatState);
+        if (holyCards.Count == amount) CardCmd.Preview(holyCards);
+        return holyCards;
     }
 }
