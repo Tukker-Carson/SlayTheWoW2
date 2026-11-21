@@ -16,7 +16,8 @@ public class ShadowyApparition() : PriestCard(1, CardType.Power, CardRarity.Unco
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(WoWKeywords.DoT)
+        HoverTipFactory.FromKeyword(WoWKeywords.DoT),
+        HoverTipFactory.FromPower<StrengthPower>(2)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play) {
@@ -25,12 +26,10 @@ public class ShadowyApparition() : PriestCard(1, CardType.Power, CardRarity.Unco
             DynamicVars[nameof(ShadowyApparitionPower)].BaseValue,
             Owner.Creature,
             this);
-        if (IsUpgraded) await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(),
+        if (!IsUpgraded) await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(),
             Owner.Creature,
             -DynamicVars[nameof(StrengthPower)].BaseValue,
             Owner.Creature,
             this);
     }
-
-    protected override void OnUpgrade() => DynamicVars[nameof(StrengthPower)].UpgradeValueBy(-2);
 }

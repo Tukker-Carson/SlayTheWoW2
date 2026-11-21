@@ -17,6 +17,7 @@ public class WoWCmd {
     
     // -----Heal-----
     public static Decimal ResolveHealAmount(Creature target, Creature source, Decimal amount, ValueProp props, CardPlay? cardPlay, CardModel? card) {
+        if (target.IsDead) return 0M;
         if (card is not null && card.Keywords.Contains(WoWKeywords.Desecrated)) {
             var block = amount;
             var enchantment = card.Enchantment;

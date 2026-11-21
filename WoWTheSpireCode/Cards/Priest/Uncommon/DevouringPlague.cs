@@ -38,5 +38,5 @@ public class DevouringPlague() : PriestCard(1, CardType.Attack, CardRarity.Uncom
             c.Keywords.Contains(WoWKeywords.Desecrated) && c.Pile!.Type != PileType.Exhaust);
     }
     
-    protected override void OnUpgrade() => DynamicVars["Potency"].UpgradeValueBy(2);
+    protected override void OnUpgrade() => DynamicVars.CalculationBase.UpgradeValueBy(2);
 }

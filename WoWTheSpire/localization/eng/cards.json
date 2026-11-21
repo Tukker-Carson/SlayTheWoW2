@@ -76,7 +76,7 @@
   "WOWTHESPIRE-FOCUSED_WILL.title": "Focused Will",
   "WOWTHESPIRE-REFLECTIVE_SHIELD.description": "When attacked, deal 25% of blocked damage back to the attacker.",
   "WOWTHESPIRE-REFLECTIVE_SHIELD.title": "Reflective Shield",
-  "WOWTHESPIRE-SHADOWY_APPARITION.description": "Damage you deal with DoTs is affected by Strength. Lose {StrengthPower:diff()} Strength.",
+  "WOWTHESPIRE-SHADOWY_APPARITION.description": "Damage you deal with DoTs is affected by [gold]Strength[/gold].{IfUpgraded:show:| Lose {StrengthPower:diff()} [gold]Strength[/gold].}",
   "WOWTHESPIRE-SHADOWY_APPARITION.title": "Shadowy Apparition",
   "WOWTHESPIRE-MIND_VISION.description": "If the enemy does not intend to attack{IfUpgraded:show:| and you are in [gold]Shadow Form[/gold]}, gain {ShadowOrbPower:diff()} [gold]Shadow Orb[/gold].",
   "WOWTHESPIRE-MIND_VISION.title": "Mind Vision",
@@ -152,7 +152,7 @@
   "WOWTHESPIRE-CASCADE.title": "Cascade",
   "WOWTHESPIRE-DIVINE_STAR.description": "Deal {Damage:diff()} damage to each enemy twice. Heal {WoWHeal:diff()} HP twice.",
   "WOWTHESPIRE-DIVINE_STAR.title": "Divine Star",
-  "WOWTHESPIRE-HALO.description": "Deal damage to each enemy equal to healing done this turn.",
+  "WOWTHESPIRE-HALO.description": "Deal {CalculatedDamage:diff()} damage to ALL enemies. Deal {ExtraDamage:diff()} extra per [purple]Desecrated[/purple] card in your deck.",
   "WOWTHESPIRE-HALO.title": "Halo",
   "WOWTHESPIRE-CONFESSION.description": "Choose a card in an Ally's hand and play a copy with a random target.",
   "WOWTHESPIRE-CONFESSION.title": "Confession",
@@ -170,5 +170,7 @@
   "WOWTHESPIRE-STOLEN_TIME.description": "Gain 1 energy and draw 1 card for each of your DoTs on the target.",
   "WOWTHESPIRE-STOLEN_TIME.title": "Stolen Time",
   "WOWTHESPIRE-RESURRECTION.description": "If this card is [gold]Holy[/gold], [gold]Sanctify[/gold] every card in your discard.{IfUpgraded:show: Otherwise, [gold]Exhaust[/gold] this card.}",
-  "WOWTHESPIRE-RESURRECTION.title": "Resurrection"
+  "WOWTHESPIRE-RESURRECTION.title": "Resurrection",
+  "WOWTHESPIRE-LEVITATE.description": "[gold]Sanctify[/gold] every [purple]Desecrated[/purple] Card you play until you next take damage.",
+  "WOWTHESPIRE-LEVITATE.title": "Levitate"
 }
